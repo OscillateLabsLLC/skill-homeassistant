@@ -1,4 +1,5 @@
 # pylint: disable=missing-function-docstring,missing-class-docstring,missing-module-docstring,logging-fstring-interpolation
+from typing import Optional
 from ovos_bus_client import Message
 from ovos_workshop.decorators import intent_handler
 from ovos_workshop.skills import OVOSSkill
@@ -149,7 +150,7 @@ class HomeAssistantSkill(OVOSSkill):
         else:
             self.speak_dialog("no.parsed.device")
 
-    def _get_device_from_message(self, message: Message, require_device: bool = True) -> str | None:
+    def _get_device_from_message(self, message: Message, require_device: bool = True) -> Optional[str]:
         """Extract and validate device from message data.
 
         Args:
@@ -166,7 +167,7 @@ class HomeAssistantSkill(OVOSSkill):
         return device or None
 
     def _handle_device_response(
-        self, response: dict | None, device: str, success_dialog: str, success_data: dict | None = None
+        self, response: Optional[dict], device: str, success_dialog: str, success_data: Optional[dict] = None
     ) -> bool:
         """Handle standard device operation response.
 

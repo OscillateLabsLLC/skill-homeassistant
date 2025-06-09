@@ -23,7 +23,7 @@ jobs:
           python -m pip install poetry
       - name: Install dependencies
         run: |
-          poetry install
+          poetry install --with dev
       - name: Test
         run: |
           poetry run poe test

@@ -16,7 +16,7 @@ url = f"https://github.com/{AUTHOR}/{REPO}@{BRANCH}"
 
 
 class TestSkillIntentMatching(unittest.TestCase):
-    skill = HomeAssistantSkill()
+    skill = HomeAssistantSkill(settings={"host": "http://homeassistant.local:8123", "api_key": "test"})
     ha_intents = IntentContainer()
 
     bus = FakeBus()

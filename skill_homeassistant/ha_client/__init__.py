@@ -31,6 +31,7 @@ class HomeAssistantClient:
         self.oauth_client_id = None
         self.temporary_instance = None
         self.connector = None
+        self.devices = []
         self.registered_devices = []  # Device objects
         self.registered_device_names = []  # Device friendly/entity names
 

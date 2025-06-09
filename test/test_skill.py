@@ -38,7 +38,9 @@ class TestSkillIntentMatching(unittest.TestCase):
 
 
 def test_verify_ssl_config_nondefault():
-    skill = HomeAssistantSkill(settings={"verify_ssl": False})
+    skill = HomeAssistantSkill(
+        settings={"host": "http://homeassistant.local:8123", "api_key": "TEST_API_KEY", "verify_ssl": False}
+    )
     skill._startup(FakeBus(), "test_skill.ssl_test")
     assert skill.verify_ssl == False
     assert skill.ha_client.config.get("verify_ssl") == False

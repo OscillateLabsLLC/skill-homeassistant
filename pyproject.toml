@@ -25,7 +25,7 @@ keywords = [
 test = ["neon-minerva"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.9,<3.13"
 ovos-bus-client = ">=0.0.8"
 ovos-workshop = ">=0.0.15"
 setuptools = "^75.0.0"

@@ -23,7 +23,7 @@ jobs:
           python -m pip install poetry
       - name: Install dependencies
         run: |
-          apt-get install -y libopenblas-dev
+          sudo apt-get install -y libopenblas-dev
           poetry install --with dev
       - name: Test
         run: |

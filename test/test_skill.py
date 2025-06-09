@@ -2,7 +2,7 @@
 # pylint: disable=invalid-name,protected-access
 import unittest
 
-from mock import Mock
+from mock import Mock, patch
 from ovos_bus_client import Message
 from ovos_utils.messagebus import FakeBus
 from padacioso import IntentContainer
@@ -26,12 +26,14 @@ class TestSkillIntentMatching(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.skill._startup(cls.bus, cls.test_skill_id)
 
-    def test_get_all_devices(self):
+    @patch("requests.get")
+    def test_get_all_devices(self, mock_get):
         self.skill.speak_dialog = Mock()
         self.skill.handle_rebuild_device_list(Message(msg_type="test"))
         self.skill.speak_dialog.assert_called_once_with("acknowledge")
 
-    def test_verify_ssl_config_default(self):
+    @patch("requests.get")
+    def test_verify_ssl_config_default(self, mock_get):
         self.assertTrue(self.skill.verify_ssl)
         print(self.skill.ha_client.config)
         self.assertTrue(self.skill.ha_client.config.get("verify_ssl"))

@@ -101,35 +101,22 @@ class HomeAssistantClient:
             LOG.exception("Error validating Home Assistant connection", exc_info=e)
             return False
 
-    def setup_configuration(self, message):
-        """Handle the setup instance message
-
-        Args:
-            message (Message): The message object
-        """
-        host = message.data.get("url", "")
-        key = message.data.get("api_key", "")
-        assist_only = message.data.get("assist_only", True)
-        verify_ssl = message.data.get("verify_ssl", True)
-
-        if host and key:
-            if self.validate_instance_connection(host, key, assist_only):
-                self.config["host"] = host
-                self.config["api_key"] = key
-                self.config["verify_ssl"] = verify_ssl
-                self.instance_available = True
-                self.init_configuration()
-
     # INSTANCE INIT OPERATIONS
     def init_configuration(self, *args, **kwargs):
         """Initialize instance configuration"""
         LOG.info(f"Initializing configuration with args: {args} and kwargs: {kwargs}")
+        self.config["host"] = kwargs.get("configuration_host", self.config.get("host", ""))
+        self.config["api_key"] = kwargs.get("configuration_api_key", self.config.get("api_key", ""))
+        if args:
+            LOG.warning(
+                f"Received unexpected args: {args}, ignoring them in configuration initialization. Use kwargs instead."
+            )
         configuration_host = self.config.get("host", "")
         configuration_api_key = self.config.get("api_key", "")
         configuration_assist_only = self.config.get("assist_only", True)
         configuration_verify_ssl = self.config.get("verify_ssl", True)
         if configuration_host != "" and configuration_api_key != "":
-            self.instance_available = True
+            self.instance_available = True  # TODO: Use the validator to check this
             self.connector = HomeAssistantRESTConnector(
                 host=configuration_host,
                 api_key=configuration_api_key,

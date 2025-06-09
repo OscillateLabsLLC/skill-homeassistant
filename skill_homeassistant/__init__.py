@@ -9,7 +9,7 @@ from skill_homeassistant.ha_client import HomeAssistantClient
 class HomeAssistantSkill(OVOSSkill):
     """Unified Home Assistant skill for OpenVoiceOS or Neon.AI."""
 
-    _settings_defaults = {"silent_entities": set(), "disable_intents": False, "timeout": 5}
+    _settings_defaults = {"silent_entities": set(), "disable_intents": False, "timeout": 5, "verify_ssl": True}
     _intents_enabled = True
     connected_intents = (
         "sensor.intent",
@@ -27,6 +27,11 @@ class HomeAssistantSkill(OVOSSkill):
 
     def __init__(self, *args, bus=None, skill_id="", **kwargs):
         super().__init__(*args, bus=bus, skill_id=skill_id, **kwargs)
+
+    @property
+    def verify_ssl(self):
+        """Return whether to verify SSL connections."""
+        return self._get_setting("verify_ssl")
 
     @property
     def silent_entities(self):
@@ -48,23 +53,25 @@ class HomeAssistantSkill(OVOSSkill):
         self._handle_connection_state(value)
 
     def initialize(self):
-        self.client_config = self._get_client_config()
-        self.ha_client = HomeAssistantClient(config=self.client_config, bus=self.bus)
+        self.client_config = self._get_client_config()  # pylint: disable=attribute-defined-outside-init
+        self.ha_client = HomeAssistantClient(  # pylint: disable=attribute-defined-outside-init
+            config=self.client_config, bus=self.bus
+        )
         if self.disable_intents:
             self.log.info("User has indicated they do not want to use Home Assistant intents. Disabling.")
             self.disable_ha_intents()
 
     def _get_client_config(self) -> dict:
         if self.settings.get("host") and self.settings.get("api_key"):
-            return self.settings
+            return {**self._settings_defaults, **self.settings}
         phal_config = self.config_core.get("PHAL", {}).get("ovos-PHAL-plugin-homeassistant")
         if phal_config:
-            return {**phal_config, **self.settings}
+            return {**self._settings_defaults, **phal_config, **self.settings}
         self.log.error(
             "No Home Assistant config found! Please set host and api_key "
             f"in the skill settings at {self.settings_path}."
         )
-        return {}
+        return self._settings_defaults
 
     def _get_setting(self, setting_name):
         """Helper method to get a setting with its default value."""

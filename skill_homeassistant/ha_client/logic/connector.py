@@ -160,10 +160,13 @@ class HomeAssistantRESTConnector(HomeAssistantConnector):
     def get_all_devices(self):
         """Get all devices from home assistant."""
         url = self.host + "/api/states"
-        response = requests.get(url, headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
         try:
+            response = requests.get(url, headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
             response.raise_for_status()
             return response.json()
+        except requests.exceptions.ConnectionError:
+            LOG.exception(f"Error connecting to Home Assistant at {self.host}")
+            return []
         except requests.exceptions.RequestException:
             LOG.exception("Error fetching devices")
             return []
@@ -171,10 +174,13 @@ class HomeAssistantRESTConnector(HomeAssistantConnector):
     def get_device_state(self, entity_id):
         """Get the state of a device."""
         url = self.host + "/api/states/" + entity_id
-        response = requests.get(url, headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
         try:
+            response = requests.get(url, headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
             response.raise_for_status()
             return response.json()
+        except requests.exceptions.ConnectionError:
+            LOG.exception(f"Error connecting to Home Assistant at {self.host}")
+            return []
         except requests.exceptions.RequestException:
             LOG.exception("Error fetching device state")
             return {}
@@ -189,7 +195,9 @@ class HomeAssistantRESTConnector(HomeAssistantConnector):
         """
         url = self.host + "/api/states/" + entity_id
         payload = {"state": state, "attributes": attributes}
-        response = requests.post(url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
+        response = requests.post(
+            url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl
+        )
         try:
             response.raise_for_status()
             return response.json()
@@ -260,7 +268,9 @@ class HomeAssistantRESTConnector(HomeAssistantConnector):
         """
         url = self.host + "/api/services/" + device_type + "/turn_on"
         payload = {"entity_id": device_id}
-        response = requests.post(url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
+        response = requests.post(
+            url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl
+        )
         try:
             response.raise_for_status()
             return response.json()
@@ -277,7 +287,9 @@ class HomeAssistantRESTConnector(HomeAssistantConnector):
         """
         url = self.host + "/api/services/" + device_type + "/turn_off"
         payload = {"entity_id": device_id}
-        response = requests.post(url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
+        response = requests.post(
+            url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl
+        )
         try:
             response.raise_for_status()
             return response.json()
@@ -300,7 +312,9 @@ class HomeAssistantRESTConnector(HomeAssistantConnector):
             for key, value in arguments.items():
                 payload[key] = value
 
-        response = requests.post(url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
+        response = requests.post(
+            url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl
+        )
 
         try:
             response.raise_for_status()
@@ -322,7 +336,9 @@ class HomeAssistantRESTConnector(HomeAssistantConnector):
             "text": command,
             "language": arguments.get("language", "en"),
         }
-        response = requests.post(url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl)
+        response = requests.post(
+            url, data=json.dumps(payload), headers=self.headers, timeout=self.timeout, verify=self.verify_ssl
+        )
         try:
             response.raise_for_status()
             return response.json()

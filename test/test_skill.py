@@ -2,7 +2,7 @@
 # pylint: disable=invalid-name,protected-access
 import unittest
 
-from mock import Mock, patch
+from mock import MagicMock, Mock, patch
 from ovos_bus_client import Message
 from ovos_utils.messagebus import FakeBus
 from padacioso import IntentContainer
@@ -35,7 +35,6 @@ class TestSkillIntentMatching(unittest.TestCase):
     @patch("requests.get")
     def test_verify_ssl_config_default(self, mock_get):
         self.assertTrue(self.skill.verify_ssl)
-        print(self.skill.ha_client.config)
         self.assertTrue(self.skill.ha_client.config.get("verify_ssl"))
 
 

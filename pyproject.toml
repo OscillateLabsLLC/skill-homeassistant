@@ -68,7 +68,7 @@ profile = "black"
 
 [tool.poe.tasks.test]
 help = "Run the test suite"
-cmd = "pytest --cov=skill_homeassistant --cov-report term-missing --junitxml=tests/unit-test-results.xml -vv test/"
+cmd = "pytest --cov=skill_homeassistant --cov-report term-missing --cov-report xml --junitxml=tests/unit-test-results.xml -vv test/"
 
 [tool.poe.tasks.format]
 help = "Run code formatters"
@@ -85,3 +85,6 @@ disable = [
     "W0718", # broad-except
     "C0415", # import-outside-toplevel
 ]
+
+[tool.coverage.run]
+relative_files = true

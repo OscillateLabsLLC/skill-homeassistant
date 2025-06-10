@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "skill-homeassistant"
-version = "0.1.1"
+version = "0.2.0"
 description = "A unified OVOS/Neon.AI Skill for Home Assistant."
 authors = ["Mike Gray <mike@oscillatelabs.net>"]
 readme = "README.md"

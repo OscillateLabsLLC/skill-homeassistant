@@ -68,7 +68,7 @@ profile = "black"
 
 [tool.poe.tasks.test]
 help = "Run the test suite"
-cmd = "pytest --cov=skill_homeassistant --cov-report term-missing -vv test/"
+cmd = "pytest --cov=skill_homeassistant --cov-report term-missing --junitxml=tests/unit-test-results.xml -vv test/"
 
 [tool.poe.tasks.format]
 help = "Run code formatters"

@@ -2,7 +2,7 @@
 # pylint: disable=invalid-name,protected-access
 import unittest
 
-from mock import MagicMock, Mock, patch
+from mock import Mock, patch
 from ovos_bus_client import Message
 from ovos_utils.messagebus import FakeBus
 from padacioso import IntentContainer

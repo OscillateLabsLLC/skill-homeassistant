@@ -34,6 +34,7 @@ ovos-utils = ">=0.0.27"
 ovos-config = ">=0.0.5"
 ovos-phal-plugin-oauth = ">=0.0.3"
 nested-lookup = ">=0.2,<1.0"
+webcolors = "^24.11.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
@@ -48,11 +49,9 @@ types-pyyaml = "*"
 ovos-utils = { version = "*", allow-prereleases = true }
 padacioso = { version = "*", allow-prereleases = true }
 adapt-parser = { git = "https://github.com/mycroftai/adapt" }
-ovos-core = ">=0.0.7"
 poethepoet = "^0.32.1"
 pytest-cov = "^6.0.0"
 toml = "^0.10.2"
-neon-minerva = { version = "~=0.2.0", allow-prereleases = true }
 mock = "^5.1.0"
 
 [tool.ruff]

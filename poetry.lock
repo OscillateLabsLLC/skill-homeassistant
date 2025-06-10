@@ -19,17 +19,6 @@ reference = "HEAD"
 resolved_reference = "06b98f8d5e525601a763103ad572b8ae615655a5"
 
 [[package]]
-name = "anyascii"
-version = "0.3.2"
-description = "Unicode to ASCII transliteration"
-optional = false
-python-versions = ">=3.3"
-files = [
-    {file = "anyascii-0.3.2-py3-none-any.whl", hash = "sha256:3b3beef6fc43d9036d3b0529050b0c48bfad8bc960e9e562d7223cfb94fe45d4"},
-    {file = "anyascii-0.3.2.tar.gz", hash = "sha256:9d5d32ef844fe225b8bc7cba7f950534fae4da27a9bf3a6bea2cb0ea46ce4730"},
-]
-
-[[package]]
 name = "astroid"
 version = "3.3.8"
 description = "An abstract syntax tree for Python with inference support."
@@ -251,23 +240,6 @@ files = [
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
-name = "click-default-group"
-version = "1.2.4"
-description = "click_default_group"
-optional = false
-python-versions = ">=2.7"
-files = [
-    {file = "click_default_group-1.2.4-py2.py3-none-any.whl", hash = "sha256:9b60486923720e7fc61731bdb32b617039aba820e22e1c88766b1125592eaa5f"},
-    {file = "click_default_group-1.2.4.tar.gz", hash = "sha256:eb3f3c99ec0d456ca6cd2a7f08f7d4e91771bef51b01bdd9580cc6450fe1251e"},
-]
-
-[package.dependencies]
-click = "*"
-
-[package.extras]
-test = ["pytest"]
-
-[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -277,20 +249,6 @@ files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
-
-[[package]]
-name = "colour"
-version = "0.1.5"
-description = "converts and manipulates various color representation (HSL, RVB, web, X11, ...)"
-optional = false
-python-versions = "*"
-files = [
-    {file = "colour-0.1.5-py2.py3-none-any.whl", hash = "sha256:33f6db9d564fadc16e59921a56999b79571160ce09916303d35346dddc17978c"},
-    {file = "colour-0.1.5.tar.gz", hash = "sha256:af20120fefd2afede8b001fbef2ea9da70ad7d49fafdb6489025dae8745c3aee"},
-]
-
-[package.extras]
-test = ["nose"]
 
 [[package]]
 name = "combo-lock"
@@ -468,20 +426,6 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
-name = "ftfy"
-version = "6.3.1"
-description = "Fixes mojibake and other problems with Unicode, after the fact"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "ftfy-6.3.1-py3-none-any.whl", hash = "sha256:7c70eb532015cd2f9adb53f101fb6c7945988d023a085d127d1573dc49dd0083"},
-    {file = "ftfy-6.3.1.tar.gz", hash = "sha256:9b3c3d90f84fb267fe64d375a07b7f8912d817cf86009ae134aa03e1819506ec"},
-]
-
-[package.dependencies]
-wcwidth = "*"
-
-[[package]]
 name = "idna"
 version = "3.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -570,17 +514,6 @@ MarkupSafe = ">=2.0"
 
 [package.extras]
 i18n = ["Babel (>=2.7)"]
-
-[[package]]
-name = "joblib"
-version = "1.4.2"
-description = "Lightweight pipelining with Python functions"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "joblib-1.4.2-py3-none-any.whl", hash = "sha256:06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6"},
-    {file = "joblib-1.4.2.tar.gz", hash = "sha256:2382c5816b2636fbd20a09e0f4e9dad4736765fdfb7dca582943b9c1366b3f0e"},
-]
 
 [[package]]
 name = "json-database"
@@ -835,31 +768,6 @@ files = [
 ]
 
 [[package]]
-name = "neon-minerva"
-version = "0.2.1a3"
-description = "Modular INtelligent Evaluation for a Reliable Voice Assistant"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "neon-minerva-0.2.1a3.tar.gz", hash = "sha256:0250435e9b1b9146dd4a93db72f04832a250a18699e0381351bdea7d626e4c88"},
-    {file = "neon_minerva-0.2.1a3-py3-none-any.whl", hash = "sha256:7c6f18d21e775c125a3eb7e2ca822c85ebd8ff3c50bef181d16c21622be87086"},
-]
-
-[package.dependencies]
-click = ">=8.0,<9.0"
-click-default-group = ">=1.2,<2.0"
-ovos-bus-client = ">=0.0,<1.0"
-ovos-utils = ">=0.0.35,<1.0"
-ovos-workshop = ">=0.0.15,<1.0"
-padacioso = ">=0.1,<1.0"
-pyyaml = ">=5.4,<7.0"
-
-[package.extras]
-chatbots = ["klat-connector", "neon-chatbot-core"]
-padatious = ["fann2 (==1.0.7)", "padatious (>=0.4.8,<0.5.0)"]
-rmq = ["pytest-rabbitmq (>=3.0,<4.0)"]
-
-[[package]]
 name = "nested-lookup"
 version = "0.2.25"
 description = "Python functions for working with deeply nested documents (lists and dicts)"
@@ -871,76 +779,6 @@ files = [
 
 [package.dependencies]
 six = "*"
-
-[[package]]
-name = "nltk"
-version = "3.9.1"
-description = "Natural Language Toolkit"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "nltk-3.9.1-py3-none-any.whl", hash = "sha256:4fa26829c5b00715afe3061398a8989dc643b92ce7dd93fb4585a70930d168a1"},
-    {file = "nltk-3.9.1.tar.gz", hash = "sha256:87d127bd3de4bd89a4f81265e5fa59cb1b199b27440175370f7417d2bc7ae868"},
-]
-
-[package.dependencies]
-click = "*"
-joblib = "*"
-regex = ">=2021.8.3"
-tqdm = "*"
-
-[package.extras]
-all = ["matplotlib", "numpy", "pyparsing", "python-crfsuite", "requests", "scikit-learn", "scipy", "twython"]
-corenlp = ["requests"]
-machine-learning = ["numpy", "python-crfsuite", "scikit-learn", "scipy"]
-plot = ["matplotlib"]
-tgrep = ["pyparsing"]
-twitter = ["twython"]
-
-[[package]]
-name = "numpy"
-version = "1.26.4"
-description = "Fundamental package for array computing in Python"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "numpy-1.26.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:9ff0f4f29c51e2803569d7a51c2304de5554655a60c5d776e35b4a41413830d0"},
-    {file = "numpy-1.26.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2e4ee3380d6de9c9ec04745830fd9e2eccb3e6cf790d39d7b98ffd19b0dd754a"},
-    {file = "numpy-1.26.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d209d8969599b27ad20994c8e41936ee0964e6da07478d6c35016bc386b66ad4"},
-    {file = "numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ffa75af20b44f8dba823498024771d5ac50620e6915abac414251bd971b4529f"},
-    {file = "numpy-1.26.4-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:62b8e4b1e28009ef2846b4c7852046736bab361f7aeadeb6a5b89ebec3c7055a"},
-    {file = "numpy-1.26.4-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:a4abb4f9001ad2858e7ac189089c42178fcce737e4169dc61321660f1a96c7d2"},
-    {file = "numpy-1.26.4-cp310-cp310-win32.whl", hash = "sha256:bfe25acf8b437eb2a8b2d49d443800a5f18508cd811fea3181723922a8a82b07"},
-    {file = "numpy-1.26.4-cp310-cp310-win_amd64.whl", hash = "sha256:b97fe8060236edf3662adfc2c633f56a08ae30560c56310562cb4f95500022d5"},
-    {file = "numpy-1.26.4-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:4c66707fabe114439db9068ee468c26bbdf909cac0fb58686a42a24de1760c71"},
-    {file = "numpy-1.26.4-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:edd8b5fe47dab091176d21bb6de568acdd906d1887a4584a15a9a96a1dca06ef"},
-    {file = "numpy-1.26.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7ab55401287bfec946ced39700c053796e7cc0e3acbef09993a9ad2adba6ca6e"},
-    {file = "numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:666dbfb6ec68962c033a450943ded891bed2d54e6755e35e5835d63f4f6931d5"},
-    {file = "numpy-1.26.4-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:96ff0b2ad353d8f990b63294c8986f1ec3cb19d749234014f4e7eb0112ceba5a"},
-    {file = "numpy-1.26.4-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:60dedbb91afcbfdc9bc0b1f3f402804070deed7392c23eb7a7f07fa857868e8a"},
-    {file = "numpy-1.26.4-cp311-cp311-win32.whl", hash = "sha256:1af303d6b2210eb850fcf03064d364652b7120803a0b872f5211f5234b399f20"},
-    {file = "numpy-1.26.4-cp311-cp311-win_amd64.whl", hash = "sha256:cd25bcecc4974d09257ffcd1f098ee778f7834c3ad767fe5db785be9a4aa9cb2"},
-    {file = "numpy-1.26.4-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:b3ce300f3644fb06443ee2222c2201dd3a89ea6040541412b8fa189341847218"},
-    {file = "numpy-1.26.4-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:03a8c78d01d9781b28a6989f6fa1bb2c4f2d51201cf99d3dd875df6fbd96b23b"},
-    {file = "numpy-1.26.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9fad7dcb1aac3c7f0584a5a8133e3a43eeb2fe127f47e3632d43d677c66c102b"},
-    {file = "numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:675d61ffbfa78604709862923189bad94014bef562cc35cf61d3a07bba02a7ed"},
-    {file = "numpy-1.26.4-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:ab47dbe5cc8210f55aa58e4805fe224dac469cde56b9f731a4c098b91917159a"},
-    {file = "numpy-1.26.4-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:1dda2e7b4ec9dd512f84935c5f126c8bd8b9f2fc001e9f54af255e8c5f16b0e0"},
-    {file = "numpy-1.26.4-cp312-cp312-win32.whl", hash = "sha256:50193e430acfc1346175fcbdaa28ffec49947a06918b7b92130744e81e640110"},
-    {file = "numpy-1.26.4-cp312-cp312-win_amd64.whl", hash = "sha256:08beddf13648eb95f8d867350f6a018a4be2e5ad54c8d8caed89ebca558b2818"},
-    {file = "numpy-1.26.4-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:7349ab0fa0c429c82442a27a9673fc802ffdb7c7775fad780226cb234965e53c"},
-    {file = "numpy-1.26.4-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:52b8b60467cd7dd1e9ed082188b4e6bb35aa5cdd01777621a1658910745b90be"},
-    {file = "numpy-1.26.4-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d5241e0a80d808d70546c697135da2c613f30e28251ff8307eb72ba696945764"},
-    {file = "numpy-1.26.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f870204a840a60da0b12273ef34f7051e98c3b5961b61b0c2c1be6dfd64fbcd3"},
-    {file = "numpy-1.26.4-cp39-cp39-musllinux_1_1_aarch64.whl", hash = "sha256:679b0076f67ecc0138fd2ede3a8fd196dddc2ad3254069bcb9faf9a79b1cebcd"},
-    {file = "numpy-1.26.4-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:47711010ad8555514b434df65f7d7b076bb8261df1ca9bb78f53d3b2db02e95c"},
-    {file = "numpy-1.26.4-cp39-cp39-win32.whl", hash = "sha256:a354325ee03388678242a4d7ebcd08b5c727033fcff3b2f536aea978e15ee9e6"},
-    {file = "numpy-1.26.4-cp39-cp39-win_amd64.whl", hash = "sha256:3373d5d70a5fe74a2c1bb6d2cfd9609ecf686d47a2d7b1d37a8f3b6bf6003aea"},
-    {file = "numpy-1.26.4-pp39-pypy39_pp73-macosx_10_9_x86_64.whl", hash = "sha256:afedb719a9dcfc7eaf2287b839d8198e06dcd4cb5d276a3df279231138e83d30"},
-    {file = "numpy-1.26.4-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:95a7476c59002f2f6c590b9b7b998306fba6a5aa646b1e22ddfeaf8f78c3a29c"},
-    {file = "numpy-1.26.4-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:7e50d0a0cc3189f9cb0aeb3a6a6af18c16f59f004b866cd2be1c14b36134a4a0"},
-    {file = "numpy-1.26.4.tar.gz", hash = "sha256:2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010"},
-]
 
 [[package]]
 name = "oauthlib"
@@ -1047,44 +885,6 @@ files = [
 ]
 
 [[package]]
-name = "ovos-adapt-parser"
-version = "0.1.3"
-description = "A text-to-intent parsing framework."
-optional = false
-python-versions = "*"
-files = [
-    {file = "ovos-adapt-parser-0.1.3.tar.gz", hash = "sha256:26a59cb8aa42c6bb16948f12a2a17979dbb62d0314b5103f152d32e230142b25"},
-    {file = "ovos_adapt_parser-0.1.3-py3-none-any.whl", hash = "sha256:c53c216699e91bde6bb32c4126f9504db0425ea6cec2b2a775f267dcee729ba0"},
-]
-
-[package.dependencies]
-langcodes = "*"
-ovos-plugin-manager = ">=0.0.26,<1.0.0"
-ovos-utils = ">=0.3.4,<1.0.0"
-ovos-workshop = ">=0.1.7,<2.0.0"
-six = ">=1.10.0"
-
-[[package]]
-name = "ovos-backend-client"
-version = "1.0.1"
-description = "api client for supported ovos-core backends"
-optional = false
-python-versions = "*"
-files = [
-    {file = "ovos-backend-client-1.0.1.tar.gz", hash = "sha256:ca298d2b9d52efd36abdb4f557c6122523ec3662c8d5332d9841fa541f7a303d"},
-    {file = "ovos_backend_client-1.0.1-py3-none-any.whl", hash = "sha256:46ae2d3fa5002107072089ad72dcd0e195f78dae49953ddf5004a3241a9654bf"},
-]
-
-[package.dependencies]
-json-database = ">=0.7,<1.0"
-oauthlib = ">=3.2,<4.0"
-ovos-config = ">=0.0.12,<1.0.0"
-ovos-utils = ">=0.0.37,<1.0.0"
-
-[package.extras]
-offline = ["SpeechRecognition (>=3.8,<4.0)", "ovos-plugin-manager (>=0.0.23,<1.0.0)", "timezonefinder"]
-
-[[package]]
 name = "ovos-bus-client"
 version = "0.1.6"
 description = "OVOS Messagebus Client"
@@ -1101,48 +901,6 @@ ovos-config = ">=0.0.12,<1.0.0"
 ovos-utils = ">=0.3.5,<1.0.0"
 pyee = ">=8.1.0,<12.0.0"
 websocket-client = ">=0.54.0"
-
-[[package]]
-name = "ovos-classifiers"
-version = "0.0.0a59"
-description = ""
-optional = false
-python-versions = "*"
-files = [
-    {file = "ovos_classifiers-0.0.0a59-py3-none-any.whl", hash = "sha256:2fa76eed282e22fcd8d7eed702fd5f4771f3436680854d6a53fda594b5a373ec"},
-]
-
-[package.dependencies]
-anyascii = "*"
-joblib = "*"
-nltk = "*"
-numpy = "<=1.26.4"
-ovos-config = "*"
-ovos-plugin-manager = ">=0.0.26a38"
-ovos-utils = "*"
-ovos-utterance-normalizer = "*"
-pyahocorasick = "*"
-python-dateutil = ">=2.8.2"
-quebra-frases = "*"
-scikit-learn = "*"
-
-[[package]]
-name = "ovos-common-query-pipeline-plugin"
-version = "0.1.4"
-description = "question handling engine for OVOS"
-optional = false
-python-versions = "*"
-files = [
-    {file = "ovos-common-query-pipeline-plugin-0.1.4.tar.gz", hash = "sha256:e74d9a7505bed51758e93362ee058439a795245663dd9ad672095adc1b6ab2fd"},
-    {file = "ovos_common_query_pipeline_plugin-0.1.4-py3-none-any.whl", hash = "sha256:32293e1796aa9eae59345b5618141a4a389af8f4b20e2ecf038ce54e4c8285c2"},
-]
-
-[package.dependencies]
-ovos-bus-client = "*"
-ovos-config = "*"
-ovos-plugin-manager = "*"
-ovos-utils = ">=0.3.4,<1.0.0"
-ovos-workshop = ">=0.1.7,<2.0.0"
 
 [[package]]
 name = "ovos-config"
@@ -1166,78 +924,19 @@ rich-click = ">=1.6,<2.0"
 extras = ["ovos-backend-client (>=0.1.0,<2.0.0)"]
 
 [[package]]
-name = "ovos-core"
-version = "0.2.3"
-description = "The spiritual successor to Mycroft AI, OVOS is flexible voice assistant software that can be run almost anywhere!"
-optional = false
-python-versions = "*"
-files = [
-    {file = "ovos-core-0.2.3.tar.gz", hash = "sha256:89916ed748f21a27318bdb19d8a7d61d7783503a5aefc6af4d645e396708ed59"},
-    {file = "ovos_core-0.2.3-py3-none-any.whl", hash = "sha256:48f96b83ae9127f93ed25b49352ee5a5a6f9b86683df5a23c999ec41e3866a89"},
-]
-
-[package.dependencies]
-combo-lock = ">=0.2.2,<0.3"
-ovos-adapt-parser = ">=0.1.2,<1.0.0"
-ovos-backend-client = ">=0.1.0,<2.0.0"
-ovos-bus-client = ">=0.1.0,<1.0.0"
-ovos-common-query-pipeline-plugin = ">=0.1.2,<1.0.0"
-ovos-config = ">=0.0.13,<1.0.0"
-ovos-lingua-franca = ">=0.4.7,<1.0.0"
-ovos-ocp-pipeline-plugin = ">=0.1.2,<1.0.0"
-ovos-plugin-manager = ">=0.0.26,<1.0.0"
-ovos-utils = ">=0.1.0,<1.0.0"
-ovos-workshop = ">=0.0.16,<2.0.0"
-padacioso = ">=0.2.2,<1.0.0"
-python-dateutil = ">=2.6,<3.0"
-requests = ">=2.26,<3.0"
-watchdog = ">=2.1,<3.0"
-
-[package.extras]
-deprecated = ["mock-msm (>=0.9)", "msm", "mycroft-messagebus-client", "ovos-cli-client", "ovos-listener (>=0.0.3,<1.0.0)", "ovos-tts-plugin-mimic (>=0.2.8,<1.0.0)", "ovos-ww-plugin-pocketsphinx (>=0.1,<1.0.0)", "ovos-ww-plugin-precise (>=0.1,<1.0.0)", "pillow (>=8.3)", "pyalsaaudio (>=0.8)", "pyaudio", "pyserial (>=3.0)", "python-vlc (>=1.1.2)"]
-lgpl = ["fann2 (>=1.0.7,<1.1.0)", "ovos-padatious (>=0.1.2,<1.0.0)"]
-mycroft = ["ovos-PHAL[extras] (>=0.2.5,<1.0.0)", "ovos-audio[extras] (>=0.2.4,<1.0.0)", "ovos-dinkum-listener[extras] (>=0.2.1,<1.0.0)", "ovos-gui[extras] (>=0.2.2,<1.0.0)", "ovos-messagebus (>=0.0.6,<1.0.0)"]
-plugins = ["ovos-bidirectional-translation-plugin (>=0.1.0,<1.0.0)", "ovos-classifiers", "ovos-translate-server-plugin (>=0.0.2,<1.0.0)", "ovos-utterance-corrections-plugin (>=0.0.2,<1.0.0)", "ovos-utterance-normalizer (>=0.2.1,<1.0.0)", "ovos-utterance-plugin-cancel (>=0.2.0,<1.0.0)"]
-skills-audio = ["ovos-skill-audio-recording (>=0.2.2,<1.0.0)", "ovos-skill-boot-finished (>=0.3.0,<1.0.0)", "ovos-skill-dictation (>=0.2.0,<1.0.0)", "ovos-skill-naptime (>=0.3.1,<1.0.0)", "ovos-skill-parrot (>=0.1.2,<1.0.0)", "ovos-skill-volume (>=0.1.1,<1.0.0)"]
-skills-desktop = ["ovos-skill-application-launcher (>=0.2.1,<1.0.0)"]
-skills-essential = ["ovos-skill-alerts (>=0.1.2,<1.0.0)", "ovos-skill-date-time (>=0.3.2,<1.0.0)", "ovos-skill-fallback-unknown (>=0.1.2,<1.0.0)", "ovos-skill-hello-world (>=0.1.6,<1.0.0)", "ovos-skill-personal (>=0.1.4,<1.0.0)", "ovos-skill-spelling (>=0.2.2,<1.0.0)", "skill-wordnet (>=0.0.4,<1.0.0)"]
-skills-gui = ["ovos-skill-homescreen (>=1.0.2,<2.0.0)"]
-skills-internet = ["ovos-skill-ip (>=0.2.2,<1.0.0)", "ovos-skill-speedtest (>=0.2.1,<1.0.0)", "ovos-skill-weather (>=0.1.1,<1.0.0)", "ovos-skill-wikihow (>=0.2.3,<1.0.0)", "ovos-skill-wikipedia (>=0.5.2,<1.0.0)", "skill-ddg (>=0.1.2,<1.0.0)", "skill-ovos-fallback-chatgpt (>=0.1.2,<1.0.0)", "skill-wolfie (>=0.2.3,<1.0.0)"]
-skills-media = ["ovos-skill-local-media (>=0.2.1,<1.0.0)", "ovos-skill-pyradios (>=0.1.0,<1.0.0)", "ovos-skill-somafm (>=0.1.1,<1.0.0)", "skill-news (>=0.1.2,<1.0.0)"]
-
-[[package]]
-name = "ovos-lingua-franca"
-version = "0.4.7"
+name = "ovos-number-parser"
+version = "0.3.2"
 description = "OpenVoiceOS's multilingual text parsing and formatting library"
 optional = false
 python-versions = "*"
 files = [
-    {file = "ovos_lingua_franca-0.4.7-py3-none-any.whl", hash = "sha256:69dde895f3b9fb66c3756fc5d66a48a0ab9683f487e38eeb64ce533461a5bb49"},
+    {file = "ovos-number-parser-0.3.2.tar.gz", hash = "sha256:f259f6b593180b59dee37baa8c99cdd192611d8aa777d63ff6f5ebd427074445"},
+    {file = "ovos_number_parser-0.3.2-py3-none-any.whl", hash = "sha256:5157e4678b419d369d8449dfe75592cfb77d35b91ba8b51aeb6cc2a73a5904f0"},
 ]
 
 [package.dependencies]
-colour = ">=0.1,<1.0"
-python-dateutil = ">=2.6,<3.0"
-quebra-frases = "*"
-rapidfuzz = "*"
-webcolors = "*"
-
-[[package]]
-name = "ovos-ocp-pipeline-plugin"
-version = "0.1.3"
-description = "media intent parser for OVOS"
-optional = false
-python-versions = "*"
-files = [
-    {file = "ovos-ocp-pipeline-plugin-0.1.3.tar.gz", hash = "sha256:97a1939e2e2eeb8eba3f29b1a66ba78bea4961b60194b2fcef8f11a24c1beeba"},
-    {file = "ovos_ocp_pipeline_plugin-0.1.3-py3-none-any.whl", hash = "sha256:aff9e4d5890c03a8319cc1a2561f09b2153ac8bf3f099c50e942a4cf03f3ece5"},
-]
-
-[package.dependencies]
-langcodes = "*"
-ovos-classifiers = "*"
-ovos-utils = ">=0.3.5,<1.0.0"
-ovos-workshop = ">=0.1.7,<2.0.0"
+quebra-frases = ">=0.3.7"
+unicode-rbnf = "*"
 
 [[package]]
 name = "ovos-phal-plugin-oauth"
@@ -1280,6 +979,21 @@ requests = ">=2.26,<3.0"
 setuptools = "*"
 
 [[package]]
+name = "ovos-solver-yes-no-plugin"
+version = "0.2.8"
+description = "A question solver plugin for OVOS"
+optional = false
+python-versions = "*"
+files = [
+    {file = "ovos-solver-yes-no-plugin-0.2.8.tar.gz", hash = "sha256:ce1220eef90a58f8a26af0701659d5be8179d48d40c30e234cdf72f3322d04aa"},
+    {file = "ovos_solver_yes_no_plugin-0.2.8-py3-none-any.whl", hash = "sha256:f0a906dc710bb2c768cdaed3bf79ae08d704799fa70f604a16e3722d4c7b5cc4"},
+]
+
+[package.dependencies]
+langcodes = "*"
+ovos-plugin-manager = "*"
+
+[[package]]
 name = "ovos-utils"
 version = "0.7.0"
 description = "collection of simple utilities for use across the openvoiceos ecosystem"
@@ -1306,40 +1020,23 @@ watchdog = "*"
 extras = ["langcodes", "oauthlib (>=3.2,<4.0)", "ovos-bus-client (>=0.0.8)", "ovos-config (>=0.0.12)", "ovos-plugin-manager (>=0.0.25)", "ovos-workshop (>=0.0.13)", "rapidfuzz (>=3.6,<4.0)", "timezonefinder"]
 
 [[package]]
-name = "ovos-utterance-normalizer"
-version = "0.2.1"
-description = ""
-optional = false
-python-versions = "*"
-files = [
-    {file = "ovos-utterance-normalizer-0.2.1.tar.gz", hash = "sha256:86d7cfa66f0f3071250e027a3804c8ad73196968d23e98ac299b0d868e724ad4"},
-    {file = "ovos_utterance_normalizer-0.2.1-py3-none-any.whl", hash = "sha256:02113773f2d144043e40ed1bee05d41b113e0d1597b7d51ffecb52a9b9262b38"},
-]
-
-[package.dependencies]
-ftfy = "*"
-ovos-plugin-manager = ">=0.0.25,<1.0.0"
-ovos-utils = ">=0.0.38,<1.0.0"
-quebra-frases = "*"
-
-[[package]]
 name = "ovos-workshop"
-version = "0.1.7"
+version = "3.4.0"
 description = "frameworks, templates and patches for the OpenVoiceOS universe"
 optional = false
 python-versions = "*"
 files = [
-    {file = "ovos_workshop-0.1.7-py3-none-any.whl", hash = "sha256:f20443f8497f2df30ceefc76d7ca44e3d63a5c973ecbbbf4806a5bc05b432763"},
-    {file = "ovos_workshop-0.1.7.tar.gz", hash = "sha256:b90f10a2a2e5727a26fc218027783d9287f3dda83a1439a9138406be7d9cedb5"},
+    {file = "ovos_workshop-3.4.0-py3-none-any.whl", hash = "sha256:bd2f88bad1e3b1e4ef498e5845e20c017b81b84f558de9e40719cae66f9ed106"},
+    {file = "ovos_workshop-3.4.0.tar.gz", hash = "sha256:129fae6b8c90c8e2e622065a08d2729ae8e3a97d7f5476b74819f09cb89b2120"},
 ]
 
 [package.dependencies]
 langcodes = "*"
-ovos-backend-client = ">=0.1.0,<2.0.0"
-ovos-bus-client = ">=0.0.8,<1.0.0"
-ovos-config = ">=0.0.12,<1.0.0"
-ovos-lingua-franca = ">=0.4.6,<1.0.0"
-ovos-utils = ">=0.2.1,<1.0.0"
+ovos-bus-client = ">=0.0.8,<2.0.0"
+ovos-config = ">=0.0.12,<2.0.0"
+ovos-number-parser = ">=0.0.1,<1.0.0"
+ovos-solver-yes-no-plugin = ">=0.0.1,<1.0.0"
+ovos-utils = ">=0.7.0,<1.0.0"
 padacioso = "*"
 rapidfuzz = "*"
 
@@ -1359,17 +1056,20 @@ files = [
 
 [[package]]
 name = "padacioso"
-version = "0.2.4"
+version = "1.0.0"
 description = "dead simple intent parser"
 optional = false
 python-versions = "*"
 files = [
-    {file = "padacioso-0.2.4-py3-none-any.whl", hash = "sha256:a40e08bebf8a512a651153bab23991b091bf1a7e549b00470bddacdf375d397c"},
-    {file = "padacioso-0.2.4.tar.gz", hash = "sha256:d6d61779ef17ae23778b29315284509992ad0a234a27a88c1a22c9e593581199"},
+    {file = "padacioso-1.0.0-py3-none-any.whl", hash = "sha256:d0840649c95baa40510d7ad340e41b3c9a043987479cc91e8fb5058f10b7e7a2"},
+    {file = "padacioso-1.0.0.tar.gz", hash = "sha256:29646359f888c539d21fd48443f264a8fc0c95ef6d13afd1713beec86fd1eed5"},
 ]
 
 [package.dependencies]
 simplematch = "*"
+
+[package.extras]
+extras = ["langcodes", "ovos-plugin-manager (>=0.5.0,<1.0.0)", "ovos-utils (>=0.3.5,<1.0.0)"]
 
 [[package]]
 name = "pastel"
@@ -1566,44 +1266,6 @@ files = [
     {file = "ptyprocess-0.7.0-py2.py3-none-any.whl", hash = "sha256:4b41f3967fce3af57cc7e94b888626c18bf37a083e3651ca8feeb66d492fef35"},
     {file = "ptyprocess-0.7.0.tar.gz", hash = "sha256:5c5d0a3b48ceee0b48485e0c26037c0acd7d29765ca3fbb5cb3831d347423220"},
 ]
-
-[[package]]
-name = "pyahocorasick"
-version = "2.1.0"
-description = "pyahocorasick is a fast and memory efficient library for exact or approximate multi-pattern string search.  With the ``ahocorasick.Automaton`` class, you can find multiple key string occurrences at once in some input text.  You can use it as a plain dict-like Trie or convert a Trie to an automaton for efficient Aho-Corasick search. And pickle to disk for easy reuse of large automatons. Implemented in C and tested on Python 3.6+. Works on Linux, macOS and Windows. BSD-3-Cause license."
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "pyahocorasick-2.1.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:8c46288044c4f71392efb4f5da0cb8abd160787a8b027afc85079e9c3d7551eb"},
-    {file = "pyahocorasick-2.1.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:1f15529c83b8c6e0548d7d3c5631fefa23fba5190e67be49d6c9e24a6358ff9c"},
-    {file = "pyahocorasick-2.1.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:581e3d85043f1797543796f021e8d7d48c18e594529b72d86f70ea78abc88fff"},
-    {file = "pyahocorasick-2.1.0-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:c860ad9cb59e56c31aed8a5d1ee9d83a0151277b09198d027ffce213697716ed"},
-    {file = "pyahocorasick-2.1.0-cp310-cp310-win_amd64.whl", hash = "sha256:4f8eba88fce34a1d8020638a4a8732c6241a5d85fe12be8669b7495d99d36b6a"},
-    {file = "pyahocorasick-2.1.0-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:d6e0da0a8fc78c694778dced537c1bfb8b2f178ec92a82d81539d2e35a15cba0"},
-    {file = "pyahocorasick-2.1.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:658d55e51c7588a5dba57de674241a16a3c94bf57f3bfd70022c4d7defe2b0f4"},
-    {file = "pyahocorasick-2.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a9f2728ac77bab807ba65c6ef41be30358ef0c9bb6960c9fe070d43f7024cb91"},
-    {file = "pyahocorasick-2.1.0-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:a58c44c407a45155dc7a3253274b5fd78ab00b579bd5685059610867cdb37142"},
-    {file = "pyahocorasick-2.1.0-cp311-cp311-win_amd64.whl", hash = "sha256:d8254d6333df5eb400ed3ec8b24da9e3f5da8e28b94a71392391703a7aac568d"},
-    {file = "pyahocorasick-2.1.0-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:82b0d20e82cc282fd29324e8df93809cebbffb345055214ce4b7873698df02c8"},
-    {file = "pyahocorasick-2.1.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:6dedb9fed92705b742d6aa3d87abb1ec999f57310ef32b962f65f4e42182fe0a"},
-    {file = "pyahocorasick-2.1.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f209796e7d354734781dd883c333596e482c70136fa76a4cb169f383e6c40bca"},
-    {file = "pyahocorasick-2.1.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:8337af64c649223cff548c7204dda823e83622d63e5449bc51ae069efb2f240f"},
-    {file = "pyahocorasick-2.1.0-cp312-cp312-win_amd64.whl", hash = "sha256:5ebe0d1e15afb782477e3d0aa1dce28ab9dad1200211fb785b9c1cc1208e6f04"},
-    {file = "pyahocorasick-2.1.0-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:7454ba5fa528958ca9a1bc3143f8e980bd7817ea481f46495e6ffa89675ab93b"},
-    {file = "pyahocorasick-2.1.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:3795ac922d21fbfea40a6b3a330762e8b38ce8ba511b1eb15bf9eeb9303b2662"},
-    {file = "pyahocorasick-2.1.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:8e92150849a3c13da37e37ca6374fa55960fd5c845029eca02d9b5846b26fe48"},
-    {file = "pyahocorasick-2.1.0-cp38-cp38-musllinux_1_1_x86_64.whl", hash = "sha256:23b183600e2087f16f6c5e6185d61525ad74335f2a5b693dd6d66bba2f6a4b05"},
-    {file = "pyahocorasick-2.1.0-cp38-cp38-win_amd64.whl", hash = "sha256:7034b26e145518610651339b8701568a3533a3114b00cf55f22bca80bff58e6d"},
-    {file = "pyahocorasick-2.1.0-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:36491675a13fe4181a6b3bccfc9032a1a5d03bd3b0a151c06f8865c16ba44b42"},
-    {file = "pyahocorasick-2.1.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:895ab1ff5384ee5325c74cbacafc419e534f1f110b9fb3c544cc56832ecce082"},
-    {file = "pyahocorasick-2.1.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:bf4a4b19ac37e9a7087646b8bcc306acd7a91649355d59b866b756068e35d018"},
-    {file = "pyahocorasick-2.1.0-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:f44f96496aa773fc5bf302ddf968dd6b920fab34522f944392af8bde13cbe805"},
-    {file = "pyahocorasick-2.1.0-cp39-cp39-win_amd64.whl", hash = "sha256:05b7c2ef52da247efec6fb5a011113b7e943e961e22aaaf757cb9c15083440c9"},
-    {file = "pyahocorasick-2.1.0.tar.gz", hash = "sha256:4df4845c1149e9fa4aa33f0f0aa35f5a42957a43a3d6e447c9b44e679e2672ea"},
-]
-
-[package.extras]
-testing = ["pytest", "setuptools", "twine", "wheel"]
 
 [[package]]
 name = "pycodestyle"
@@ -2120,102 +1782,6 @@ dev = ["mypy", "packaging", "pre-commit", "pytest", "pytest-cov", "rich-codex", 
 docs = ["markdown_include", "mkdocs", "mkdocs-glightbox", "mkdocs-material-extensions", "mkdocs-material[imaging] (>=9.5.18,<9.6.0)", "mkdocs-rss-plugin", "mkdocstrings[python]", "rich-codex"]
 
 [[package]]
-name = "scikit-learn"
-version = "1.6.1"
-description = "A set of python modules for machine learning and data mining"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "scikit_learn-1.6.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d056391530ccd1e501056160e3c9673b4da4805eb67eb2bdf4e983e1f9c9204e"},
-    {file = "scikit_learn-1.6.1-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:0c8d036eb937dbb568c6242fa598d551d88fb4399c0344d95c001980ec1c7d36"},
-    {file = "scikit_learn-1.6.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:8634c4bd21a2a813e0a7e3900464e6d593162a29dd35d25bdf0103b3fce60ed5"},
-    {file = "scikit_learn-1.6.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:775da975a471c4f6f467725dff0ced5c7ac7bda5e9316b260225b48475279a1b"},
-    {file = "scikit_learn-1.6.1-cp310-cp310-win_amd64.whl", hash = "sha256:8a600c31592bd7dab31e1c61b9bbd6dea1b3433e67d264d17ce1017dbdce8002"},
-    {file = "scikit_learn-1.6.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:72abc587c75234935e97d09aa4913a82f7b03ee0b74111dcc2881cba3c5a7b33"},
-    {file = "scikit_learn-1.6.1-cp311-cp311-macosx_12_0_arm64.whl", hash = "sha256:b3b00cdc8f1317b5f33191df1386c0befd16625f49d979fe77a8d44cae82410d"},
-    {file = "scikit_learn-1.6.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:dc4765af3386811c3ca21638f63b9cf5ecf66261cc4815c1db3f1e7dc7b79db2"},
-    {file = "scikit_learn-1.6.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:25fc636bdaf1cc2f4a124a116312d837148b5e10872147bdaf4887926b8c03d8"},
-    {file = "scikit_learn-1.6.1-cp311-cp311-win_amd64.whl", hash = "sha256:fa909b1a36e000a03c382aade0bd2063fd5680ff8b8e501660c0f59f021a6415"},
-    {file = "scikit_learn-1.6.1-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:926f207c804104677af4857b2c609940b743d04c4c35ce0ddc8ff4f053cddc1b"},
-    {file = "scikit_learn-1.6.1-cp312-cp312-macosx_12_0_arm64.whl", hash = "sha256:2c2cae262064e6a9b77eee1c8e768fc46aa0b8338c6a8297b9b6759720ec0ff2"},
-    {file = "scikit_learn-1.6.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1061b7c028a8663fb9a1a1baf9317b64a257fcb036dae5c8752b2abef31d136f"},
-    {file = "scikit_learn-1.6.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2e69fab4ebfc9c9b580a7a80111b43d214ab06250f8a7ef590a4edf72464dd86"},
-    {file = "scikit_learn-1.6.1-cp312-cp312-win_amd64.whl", hash = "sha256:70b1d7e85b1c96383f872a519b3375f92f14731e279a7b4c6cfd650cf5dffc52"},
-    {file = "scikit_learn-1.6.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:2ffa1e9e25b3d93990e74a4be2c2fc61ee5af85811562f1288d5d055880c4322"},
-    {file = "scikit_learn-1.6.1-cp313-cp313-macosx_12_0_arm64.whl", hash = "sha256:dc5cf3d68c5a20ad6d571584c0750ec641cc46aeef1c1507be51300e6003a7e1"},
-    {file = "scikit_learn-1.6.1-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c06beb2e839ecc641366000ca84f3cf6fa9faa1777e29cf0c04be6e4d096a348"},
-    {file = "scikit_learn-1.6.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e8ca8cb270fee8f1f76fa9bfd5c3507d60c6438bbee5687f81042e2bb98e5a97"},
-    {file = "scikit_learn-1.6.1-cp313-cp313-win_amd64.whl", hash = "sha256:7a1c43c8ec9fde528d664d947dc4c0789be4077a3647f232869f41d9bf50e0fb"},
-    {file = "scikit_learn-1.6.1-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "sha256:a17c1dea1d56dcda2fac315712f3651a1fea86565b64b48fa1bc090249cbf236"},
-    {file = "scikit_learn-1.6.1-cp313-cp313t-macosx_12_0_arm64.whl", hash = "sha256:6a7aa5f9908f0f28f4edaa6963c0a6183f1911e63a69aa03782f0d924c830a35"},
-    {file = "scikit_learn-1.6.1-cp313-cp313t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0650e730afb87402baa88afbf31c07b84c98272622aaba002559b614600ca691"},
-    {file = "scikit_learn-1.6.1-cp313-cp313t-win_amd64.whl", hash = "sha256:3f59fe08dc03ea158605170eb52b22a105f238a5d512c4470ddeca71feae8e5f"},
-    {file = "scikit_learn-1.6.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:6849dd3234e87f55dce1db34c89a810b489ead832aaf4d4550b7ea85628be6c1"},
-    {file = "scikit_learn-1.6.1-cp39-cp39-macosx_12_0_arm64.whl", hash = "sha256:e7be3fa5d2eb9be7d77c3734ff1d599151bb523674be9b834e8da6abe132f44e"},
-    {file = "scikit_learn-1.6.1-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:44a17798172df1d3c1065e8fcf9019183f06c87609b49a124ebdf57ae6cb0107"},
-    {file = "scikit_learn-1.6.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b8b7a3b86e411e4bce21186e1c180d792f3d99223dcfa3b4f597ecc92fa1a422"},
-    {file = "scikit_learn-1.6.1-cp39-cp39-win_amd64.whl", hash = "sha256:7a73d457070e3318e32bdb3aa79a8d990474f19035464dfd8bede2883ab5dc3b"},
-    {file = "scikit_learn-1.6.1.tar.gz", hash = "sha256:b4fc2525eca2c69a59260f583c56a7557c6ccdf8deafdba6e060f94c1c59738e"},
-]
-
-[package.dependencies]
-joblib = ">=1.2.0"
-numpy = ">=1.19.5"
-scipy = ">=1.6.0"
-threadpoolctl = ">=3.1.0"
-
-[package.extras]
-benchmark = ["matplotlib (>=3.3.4)", "memory_profiler (>=0.57.0)", "pandas (>=1.1.5)"]
-build = ["cython (>=3.0.10)", "meson-python (>=0.16.0)", "numpy (>=1.19.5)", "scipy (>=1.6.0)"]
-docs = ["Pillow (>=7.1.2)", "matplotlib (>=3.3.4)", "memory_profiler (>=0.57.0)", "numpydoc (>=1.2.0)", "pandas (>=1.1.5)", "plotly (>=5.14.0)", "polars (>=0.20.30)", "pooch (>=1.6.0)", "pydata-sphinx-theme (>=0.15.3)", "scikit-image (>=0.17.2)", "seaborn (>=0.9.0)", "sphinx (>=7.3.7)", "sphinx-copybutton (>=0.5.2)", "sphinx-design (>=0.5.0)", "sphinx-design (>=0.6.0)", "sphinx-gallery (>=0.17.1)", "sphinx-prompt (>=1.4.0)", "sphinx-remove-toctrees (>=1.0.0.post1)", "sphinxcontrib-sass (>=0.3.4)", "sphinxext-opengraph (>=0.9.1)", "towncrier (>=24.8.0)"]
-examples = ["matplotlib (>=3.3.4)", "pandas (>=1.1.5)", "plotly (>=5.14.0)", "pooch (>=1.6.0)", "scikit-image (>=0.17.2)", "seaborn (>=0.9.0)"]
-install = ["joblib (>=1.2.0)", "numpy (>=1.19.5)", "scipy (>=1.6.0)", "threadpoolctl (>=3.1.0)"]
-maintenance = ["conda-lock (==2.5.6)"]
-tests = ["black (>=24.3.0)", "matplotlib (>=3.3.4)", "mypy (>=1.9)", "numpydoc (>=1.2.0)", "pandas (>=1.1.5)", "polars (>=0.20.30)", "pooch (>=1.6.0)", "pyamg (>=4.0.0)", "pyarrow (>=12.0.0)", "pytest (>=7.1.2)", "pytest-cov (>=2.9.0)", "ruff (>=0.5.1)", "scikit-image (>=0.17.2)"]
-
-[[package]]
-name = "scipy"
-version = "1.13.1"
-description = "Fundamental algorithms for scientific computing in Python"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "scipy-1.13.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:20335853b85e9a49ff7572ab453794298bcf0354d8068c5f6775a0eabf350aca"},
-    {file = "scipy-1.13.1-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:d605e9c23906d1994f55ace80e0125c587f96c020037ea6aa98d01b4bd2e222f"},
-    {file = "scipy-1.13.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cfa31f1def5c819b19ecc3a8b52d28ffdcc7ed52bb20c9a7589669dd3c250989"},
-    {file = "scipy-1.13.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f26264b282b9da0952a024ae34710c2aff7d27480ee91a2e82b7b7073c24722f"},
-    {file = "scipy-1.13.1-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:eccfa1906eacc02de42d70ef4aecea45415f5be17e72b61bafcfd329bdc52e94"},
-    {file = "scipy-1.13.1-cp310-cp310-win_amd64.whl", hash = "sha256:2831f0dc9c5ea9edd6e51e6e769b655f08ec6db6e2e10f86ef39bd32eb11da54"},
-    {file = "scipy-1.13.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:27e52b09c0d3a1d5b63e1105f24177e544a222b43611aaf5bc44d4a0979e32f9"},
-    {file = "scipy-1.13.1-cp311-cp311-macosx_12_0_arm64.whl", hash = "sha256:54f430b00f0133e2224c3ba42b805bfd0086fe488835effa33fa291561932326"},
-    {file = "scipy-1.13.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e89369d27f9e7b0884ae559a3a956e77c02114cc60a6058b4e5011572eea9299"},
-    {file = "scipy-1.13.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a78b4b3345f1b6f68a763c6e25c0c9a23a9fd0f39f5f3d200efe8feda560a5fa"},
-    {file = "scipy-1.13.1-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:45484bee6d65633752c490404513b9ef02475b4284c4cfab0ef946def50b3f59"},
-    {file = "scipy-1.13.1-cp311-cp311-win_amd64.whl", hash = "sha256:5713f62f781eebd8d597eb3f88b8bf9274e79eeabf63afb4a737abc6c84ad37b"},
-    {file = "scipy-1.13.1-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:5d72782f39716b2b3509cd7c33cdc08c96f2f4d2b06d51e52fb45a19ca0c86a1"},
-    {file = "scipy-1.13.1-cp312-cp312-macosx_12_0_arm64.whl", hash = "sha256:017367484ce5498445aade74b1d5ab377acdc65e27095155e448c88497755a5d"},
-    {file = "scipy-1.13.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:949ae67db5fa78a86e8fa644b9a6b07252f449dcf74247108c50e1d20d2b4627"},
-    {file = "scipy-1.13.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:de3ade0e53bc1f21358aa74ff4830235d716211d7d077e340c7349bc3542e884"},
-    {file = "scipy-1.13.1-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:2ac65fb503dad64218c228e2dc2d0a0193f7904747db43014645ae139c8fad16"},
-    {file = "scipy-1.13.1-cp312-cp312-win_amd64.whl", hash = "sha256:cdd7dacfb95fea358916410ec61bbc20440f7860333aee6d882bb8046264e949"},
-    {file = "scipy-1.13.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:436bbb42a94a8aeef855d755ce5a465479c721e9d684de76bf61a62e7c2b81d5"},
-    {file = "scipy-1.13.1-cp39-cp39-macosx_12_0_arm64.whl", hash = "sha256:8335549ebbca860c52bf3d02f80784e91a004b71b059e3eea9678ba994796a24"},
-    {file = "scipy-1.13.1-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d533654b7d221a6a97304ab63c41c96473ff04459e404b83275b60aa8f4b7004"},
-    {file = "scipy-1.13.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:637e98dcf185ba7f8e663e122ebf908c4702420477ae52a04f9908707456ba4d"},
-    {file = "scipy-1.13.1-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:a014c2b3697bde71724244f63de2476925596c24285c7a637364761f8710891c"},
-    {file = "scipy-1.13.1-cp39-cp39-win_amd64.whl", hash = "sha256:392e4ec766654852c25ebad4f64e4e584cf19820b980bc04960bca0b0cd6eaa2"},
-    {file = "scipy-1.13.1.tar.gz", hash = "sha256:095a87a0312b08dfd6a6155cbbd310a8c51800fc931b8c0b84003014b874ed3c"},
-]
-
-[package.dependencies]
-numpy = ">=1.22.4,<2.3"
-
-[package.extras]
-dev = ["cython-lint (>=0.12.2)", "doit (>=0.36.0)", "mypy", "pycodestyle", "pydevtool", "rich-click", "ruff", "types-psutil", "typing_extensions"]
-doc = ["jupyterlite-pyodide-kernel", "jupyterlite-sphinx (>=0.12.0)", "jupytext", "matplotlib (>=3.5)", "myst-nb", "numpydoc", "pooch", "pydata-sphinx-theme (>=0.15.2)", "sphinx (>=5.0.0)", "sphinx-design (>=0.4.0)"]
-test = ["array-api-strict", "asv", "gmpy2", "hypothesis (>=6.30)", "mpmath", "pooch", "pytest", "pytest-cov", "pytest-timeout", "pytest-xdist", "scikit-umfpack", "threadpoolctl"]
-
-[[package]]
 name = "setuptools"
 version = "75.8.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
@@ -2283,17 +1849,6 @@ files = [
 pbr = ">=2.0.0"
 
 [[package]]
-name = "threadpoolctl"
-version = "3.5.0"
-description = "threadpoolctl"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "threadpoolctl-3.5.0-py3-none-any.whl", hash = "sha256:56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467"},
-    {file = "threadpoolctl-3.5.0.tar.gz", hash = "sha256:082433502dd922bf738de0d8bcc4fdcbf0979ff44c42bd40f5af8a282f6fa107"},
-]
-
-[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -2357,27 +1912,6 @@ files = [
 ]
 
 [[package]]
-name = "tqdm"
-version = "4.67.1"
-description = "Fast, Extensible Progress Meter"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "tqdm-4.67.1-py3-none-any.whl", hash = "sha256:26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2"},
-    {file = "tqdm-4.67.1.tar.gz", hash = "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"},
-]
-
-[package.dependencies]
-colorama = {version = "*", markers = "platform_system == \"Windows\""}
-
-[package.extras]
-dev = ["nbval", "pytest (>=6)", "pytest-asyncio (>=0.24)", "pytest-cov", "pytest-timeout"]
-discord = ["requests"]
-notebook = ["ipywidgets (>=6)"]
-slack = ["slack-sdk"]
-telegram = ["requests"]
-
-[[package]]
 name = "types-pyyaml"
 version = "6.0.12.20241230"
 description = "Typing stubs for PyYAML"
@@ -2397,6 +1931,17 @@ python-versions = ">=3.8"
 files = [
     {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
     {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
+]
+
+[[package]]
+name = "unicode-rbnf"
+version = "2.3.0"
+description = "Rule-based number formatting using Unicode CLDR data"
+optional = false
+python-versions = ">=3.8.0"
+files = [
+    {file = "unicode_rbnf-2.3.0-py3-none-any.whl", hash = "sha256:cb4fd74dcd090faf3eb17d528ba03cef09b44d3c360f5905c51245fec154ffcc"},
+    {file = "unicode_rbnf-2.3.0.tar.gz", hash = "sha256:8a3ac2fe199929b7f342bbc74f5f86f01a4e7d324811be02ea6474851e73e5ad"},
 ]
 
 [[package]]
@@ -2457,30 +2002,15 @@ files = [
 watchmedo = ["PyYAML (>=3.10)"]
 
 [[package]]
-name = "wcwidth"
-version = "0.2.13"
-description = "Measures the displayed width of unicode strings in a terminal"
-optional = false
-python-versions = "*"
-files = [
-    {file = "wcwidth-0.2.13-py2.py3-none-any.whl", hash = "sha256:3da69048e4540d84af32131829ff948f1e022c1c6bdb8d6102117aac784f6859"},
-    {file = "wcwidth-0.2.13.tar.gz", hash = "sha256:72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"},
-]
-
-[[package]]
 name = "webcolors"
-version = "1.13"
+version = "24.11.1"
 description = "A library for working with the color formats defined by HTML and CSS."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 files = [
-    {file = "webcolors-1.13-py3-none-any.whl", hash = "sha256:29bc7e8752c0a1bd4a1f03c14d6e6a72e93d82193738fa860cbff59d0fcc11bf"},
-    {file = "webcolors-1.13.tar.gz", hash = "sha256:c225b674c83fa923be93d235330ce0300373d02885cef23238813b0d5668304a"},
+    {file = "webcolors-24.11.1-py3-none-any.whl", hash = "sha256:515291393b4cdf0eb19c155749a096f779f7d909f7cceea072791cb9095b92e9"},
+    {file = "webcolors-24.11.1.tar.gz", hash = "sha256:ecb3d768f32202af770477b8b65f318fa4f566c22948673a977b00d589dd80f6"},
 ]
-
-[package.extras]
-docs = ["furo", "sphinx", "sphinx-copybutton", "sphinx-inline-tabs", "sphinx-notfound-page", "sphinxext-opengraph"]
-tests = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "websocket-client"
@@ -2540,4 +2070,4 @@ test = []
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9,<3.13"
-content-hash = "1901dc27235210e87ef6ce5fd7e5e465c72bbc269043cbd374e1762fbef6b21e"
+content-hash = "d672d84b6ede9d98509394b65f899887083e0a9cb5a75b77bf172b79cc4ecd4d"

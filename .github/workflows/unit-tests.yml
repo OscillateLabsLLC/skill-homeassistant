@@ -28,9 +28,15 @@ jobs:
       - name: Test
         run: |
           poetry run poe test
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
+      - name: Publish test results
+        uses: dorny/test-reporter@v2
+        if: always()
         with:
-          name: pytest-results-${{ matrix.python-version }}
+          name: pytest-results
           path: tests/unit-test-results.xml
-        if: ${{ always() }}
+          reporter: java-junit
+
+      - name: Coverage comment
+        uses: py-cov-action/python-coverage-comment-action@v3
+        with:
+          GITHUB_TOKEN: ${{ github.token }}

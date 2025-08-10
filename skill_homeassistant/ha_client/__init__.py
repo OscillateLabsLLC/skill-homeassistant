@@ -10,7 +10,6 @@ from ovos_utils.parse import match_one
 from skill_homeassistant.ha_client.constants import SUPPORTED_DEVICES
 from skill_homeassistant.ha_client.logic.connector import HomeAssistantRESTConnector
 from skill_homeassistant.ha_client.logic.utils import (
-    check_if_device_type_is_group,
     get_percentage_brightness_from_ha_value,
     map_entity_to_device_type,
 )
@@ -136,33 +135,29 @@ class HomeAssistantClient:
         LOG.info(f"Initializing configuration with args: {args} and kwargs: {kwargs}")
         for device in self.devices:
             device_type = map_entity_to_device_type(device["entity_id"])
-            device_type_is_group = check_if_device_type_is_group(device.get("attributes", {}))
             if device_type is not None:
-                if not device_type_is_group:
-                    device_id = device["entity_id"]
-                    device_name = device.get("attributes", {}).get("friendly_name", device_id)
-                    device_icon = f"mdi:{device_type}"
-                    device_state = device.get("state", None)
-                    device_area = device.get("area_id", None)
+                device_id = device["entity_id"]
+                device_name = device.get("attributes", {}).get("friendly_name", device_id)
+                device_icon = f"mdi:{device_type}"
+                device_state = device.get("state", None)
+                device_area = device.get("area_id", None)
 
-                    device_attributes = device.get("attributes", {})
-                    if device_type in self.device_types:
-                        LOG.debug(f"Device added: {device_name} - {device_type} - {device_area}")
-                        dev_args = [
-                            self.connector,
-                            device_id,
-                            device_icon,
-                            device_name,
-                            device_state,
-                            device_attributes,
-                            device_area,
-                        ]
-                        self.registered_devices.append(self.device_types[device_type](*dev_args))
-                        self.registered_device_names.append(device_name)
-                    else:
-                        LOG.warning(f"Device type {device_type} not supported; please file an issue on GitHub")
+                device_attributes = device.get("attributes", {})
+                if device_type in self.device_types:
+                    LOG.debug(f"Device added: {device_name} - {device_type} - {device_area}")
+                    dev_args = [
+                        self.connector,
+                        device_id,
+                        device_icon,
+                        device_name,
+                        device_state,
+                        device_attributes,
+                        device_area,
+                    ]
+                    self.registered_devices.append(self.device_types[device_type](*dev_args))
+                    self.registered_device_names.append(device_name)
                 else:
-                    LOG.warning(f"Device type {device_type} is a group, not supported currently")
+                    LOG.warning(f"Device type {device_type} not supported; please file an issue on GitHub")
 
     def handle_get_devices(self):
         """Handle the get devices message

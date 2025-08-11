@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.2.0...v0.3.0) (2025-08-11)
+
+
+### Features
+
+* support groups ([#12](https://github.com/OscillateLabsLLC/skill-homeassistant/issues/12)) ([f6e59b5](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/f6e59b54b27a7d99d9ea2fd5cce901afe3c62d2c))
+
 ## [0.2.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.1.1...v0.2.0) (2025-06-10)
 
 

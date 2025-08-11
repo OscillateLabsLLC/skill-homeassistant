@@ -313,38 +313,3 @@ class HomeAssistantSkill(OVOSSkill):
 
     def _get_ha_value_from_percentage_brightness(self, brightness):
         return round(int(brightness)) / 100 * 255
-
-
-if __name__ == "__main__":
-    # from ovos_utils.messagebus import FakeBus
-    from ovos_bus_client.client import MessageBusClient  # pylint: disable=ungrouped-imports
-
-    bus = MessageBusClient()
-    bus.run_in_thread()
-    skill = HomeAssistantSkill(bus=bus, skill_id="skill_homeassistant.test")
-    skill.handle_turn_on_intent(Message("", {"entity": "nerd art"}))
-    skill.handle_turn_off_intent(Message("", {"entity": "nerd art"}))
-    skill.handle_turn_on_intent(Message("", {"entity": "FAKE DEVICE"}))
-    skill.handle_turn_off_intent(Message("", {"entity": "FAKE DEVICE"}))
-    skill.handle_get_brightness_intent(Message("", {"entity": "master bedroom light"}))
-    skill.handle_get_brightness_intent(Message("", {"entity": ""}))
-    skill.handle_get_brightness_intent(Message("", {"entity": "FAKE DEVICE"}))
-    skill.handle_set_brightness_intent(Message("", {"entity": "master bedroom light", "brightness": 100}))
-    skill.handle_set_brightness_intent(Message("", {"entity": "", "brightness": 100}))
-    skill.handle_set_brightness_intent(Message("", {"entity": "FAKE DEVICE", "brightness": 100}))
-    skill.handle_decrease_brightness_intent(Message("", {"entity": "office light"}))
-    skill.handle_decrease_brightness_intent(Message("", {"entity": ""}))
-    skill.handle_decrease_brightness_intent(Message("", {"entity": "FAKE DEVICE"}))
-    skill.handle_increase_brightness_intent(Message("", {"entity": "office light"}))
-    skill.handle_increase_brightness_intent(Message("", {"entity": ""}))
-    skill.handle_increase_brightness_intent(Message("", {"entity": "FAKE DEVICE"}))
-    skill.get_device_intent(Message("", {"entity": "kitchen light"}))
-    skill.handle_get_color_intent(Message("", {"entity": "temperature light"}))
-    skill.handle_get_color_intent(Message("", {"entity": ""}))
-    skill.handle_get_color_intent(Message("", {"entity": "FAKE DEVICE"}))
-    skill.handle_set_color_intent(Message("", {"entity": "temperature light", "color": "yellow"}))
-    skill.handle_set_color_intent(Message("", {"entity": "", "color": "yellow"}))
-    skill.handle_set_color_intent(Message("", {"entity": "FAKE DEVICE", "color": "yellow"}))
-    skill.handle_assist_intent(Message("", {"command": "turn on nerd art"}))
-    skill.handle_assist_intent(Message("", {"command": "turn off nerd art"}))
-    print("BREAK")

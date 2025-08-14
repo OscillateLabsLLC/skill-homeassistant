@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.3.0...v0.4.0) (2025-08-14)
+
+
+### Features
+
+* Support for Polish language ([#9](https://github.com/OscillateLabsLLC/skill-homeassistant/issues/9)) ([0b7d181](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/0b7d181eb4c433a1fa98f1c97fbeb31fc15e59d6))
+* update skill.json automation to support multiple languages ([16abe26](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/16abe264116deabf32b9b5ac0e1f5e0081602f2a))
+
+
+### Bug Fixes
+
+* strip "to" from color ([#15](https://github.com/OscillateLabsLLC/skill-homeassistant/issues/15)) ([7f8748c](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/7f8748c4ea21a2c7efd4308b6f1b1d60fef54cdb))
+
 ## [0.3.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.2.0...v0.3.0) (2025-08-11)
 
 

@@ -322,7 +322,8 @@ class HomeAssistantClient:
             message (Message): The message object
         """
         device_id, spoken_device = self._gather_device_id(message)
-        color = message.data.get("color")
+        color = message.data.get("color", "")
+        color.replace("to", "")
         for device in self.registered_devices:
             if device.device_id == device_id:
                 device.set_color(color)

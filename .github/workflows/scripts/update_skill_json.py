@@ -48,7 +48,7 @@ def get_skill_json(skill_dir: str, lang_code: str = "en-us"):
     if current != skill_spec:
         print("Skill updated. Writing skill.json")
         with open(skill_json, "w+", encoding="utf-8") as f:
-            json.dump(skill_spec, f, indent=4)
+            json.dump(skill_spec, f, indent=4, ensure_ascii=False)
     else:
         print("No changes to skill.json")
     move(skill_json, skill_json)

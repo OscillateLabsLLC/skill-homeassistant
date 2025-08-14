@@ -5,7 +5,11 @@ It defines common functionality for controlling devices and getting their state 
 """
 
 from ovos_utils.log import LOG
-from webcolors import name_to_rgb, rgb_to_name  # TODO: Use ovos-color-parser when it's ready
+from webcolors import (  # TODO: Use ovos-color-parser when it's ready
+    name_to_rgb,
+    rgb_to_name,
+)
+
 from skill_homeassistant.ha_client.logic.connector import HomeAssistantConnector
 
 

@@ -1,5 +1,6 @@
 # pylint: disable=missing-function-docstring,missing-class-docstring,missing-module-docstring,logging-fstring-interpolation
 from typing import Optional
+
 from ovos_bus_client import Message
 from ovos_workshop.decorators import intent_handler
 from ovos_workshop.skills import OVOSSkill

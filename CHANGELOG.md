@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.5.0...v0.5.1) (2025-08-14)
+
+
+### Bug Fixes
+
+* **security:** update vulnerable packages ([4f48535](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/4f4853572d41d0e23638061a8537fb1d96a61834))
+
 ## [0.5.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.4.0...v0.5.0) (2025-08-14)
 
 

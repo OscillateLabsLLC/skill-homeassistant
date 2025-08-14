@@ -12,9 +12,9 @@
     "name": "skill-homeassistant",
     "description": "skill-homeassistant",
     "examples": [
-        "What is the status of the living room light?",
-        "Turn on the kitchen light",
-        "Change light bedside lamp to blue"
+        "Jaki jest status lampy w salonie?",
+        "W\u0142\u0105cz \u015bwiat\u0142o w kuchni",
+        "Zmie\u0144 kolor lampy w salonie na niebieski"
     ],
     "tags": [
         "ovos",

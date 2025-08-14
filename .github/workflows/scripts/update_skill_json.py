@@ -30,14 +30,14 @@
 import json
 from os.path import expanduser, isdir, join, isfile
 from pprint import pprint
-from shutil import copy
+from shutil import move
 from sys import argv
 
 
-def get_skill_json(skill_dir: str):
+def get_skill_json(skill_dir: str, lang_code: str = "en-us"):
     print(f"skill_dir={skill_dir}")
     skill_json = join(skill_dir, "skill.json")
-    skill_spec = get_poetry_skill_data(skill_dir)
+    skill_spec = get_poetry_skill_data(skill_dir, lang_code)
     pprint(skill_spec)
     try:
         with open(skill_json) as f:
@@ -46,15 +46,15 @@ def get_skill_json(skill_dir: str):
         print(e)
         current = None
     if current != skill_spec:
-        print("Skill Updated. Writing skill.json")
+        print("Skill updated. Writing skill.json")
         with open(skill_json, "w+") as f:
             json.dump(skill_spec, f, indent=4)
     else:
         print("No changes to skill.json")
-    copy(skill_json, join(skill_dir, "skill_homeassistant", "locale", "en-us", "skill.json"))
+    move(skill_json, skill_json)
 
 
-def get_poetry_skill_data(skill_dir: str):
+def get_poetry_skill_data(skill_dir: str, lang_code: str = "en-us"):
     skill_data = {
         "skill_id": "skill_homeassistant.oscillatelabsllc",
         "source": "https://github.com/oscillatelabsllc/skill-homeassistant",
@@ -66,11 +66,7 @@ def get_poetry_skill_data(skill_dir: str):
         "images": [],
         "name": "skill-homeassistant",
         "description": "Unified OpenVoiceOS/Neon.AI skill for Home Assistant",
-        "examples": [
-            "What is the status of the living room light?",
-            "Turn on the kitchen light",
-            "Change light bedside lamp to blue",
-        ],
+        "examples": [],
         "tags": ["ovos", "neon", "homeassistant"],
         "version": "",
     }
@@ -92,8 +88,14 @@ def get_poetry_skill_data(skill_dir: str):
     skill_data["author"] = data["tool"]["poetry"].get("authors", [""])
     skill_data["tags"] = data["tool"]["poetry"].get("keywords", ["ovos", "neon", "homeassistant"])
     skill_data["version"] = data["tool"]["poetry"].get("version", [""])
+
+    with open(join(skill_dir, f"skill_homeassistant/locale/{lang_code}/skill.json"), encoding="utf-8") as f:
+        skill_json = json.load(f)
+        skill_data["examples"] = skill_json.get("examples", [])
     return skill_data
 
 
 if __name__ == "__main__":
-    get_skill_json(argv[1])
+    supported_langs = ["en-us", "pl-pl"]
+    for lang in supported_langs:
+        get_skill_json(argv[1], lang_code=lang)

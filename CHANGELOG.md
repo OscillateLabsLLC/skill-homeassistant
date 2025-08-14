@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.4.0...v0.5.0) (2025-08-14)
+
+
+### Features
+
+* Basic GUI support ([#17](https://github.com/OscillateLabsLLC/skill-homeassistant/issues/17)) ([d16edb8](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/d16edb80d65c025e0157f344eab9284c36b15c9e))
+
+
+### Bug Fixes
+
+* **skill.json:** ensure utf-8 encoding ([94a0ae8](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/94a0ae837bc3f279ac31deed38e35d6d3505bde1))
+
 ## [0.4.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.3.0...v0.4.0) (2025-08-14)
 
 

@@ -40,14 +40,14 @@ def get_skill_json(skill_dir: str, lang_code: str = "en-us"):
     skill_spec = get_poetry_skill_data(skill_dir, lang_code)
     pprint(skill_spec)
     try:
-        with open(skill_json) as f:
+        with open(skill_json, encoding="utf-8") as f:
             current = json.load(f)
     except Exception as e:
         print(e)
         current = None
     if current != skill_spec:
         print("Skill updated. Writing skill.json")
-        with open(skill_json, "w+") as f:
+        with open(skill_json, "w+", encoding="utf-8") as f:
             json.dump(skill_spec, f, indent=4)
     else:
         print("No changes to skill.json")
@@ -78,7 +78,7 @@ def get_poetry_skill_data(skill_dir: str, lang_code: str = "en-us"):
     pyproject = join(skill_dir, "pyproject.toml")
     if not isfile(pyproject):
         raise FileNotFoundError(f"Not a Directory: {pyproject}")
-    with open(pyproject) as f:
+    with open(pyproject, encoding="utf-8") as f:
         data = load(f)
     skill_data["package_name"] = data["tool"]["poetry"].get("name", "Unknown")
     skill_data["name"] = data["tool"]["poetry"].get("name", "Unknown")

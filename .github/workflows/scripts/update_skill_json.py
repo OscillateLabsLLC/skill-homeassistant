@@ -99,4 +99,4 @@ if __name__ == "__main__":
     supported_langs = ["en-us", "pl-pl"]
     for lang in supported_langs:
         get_skill_json(argv[1], lang_code=lang)
-    copy("./skill_homeassistant/locale/en-us/skill.json", "./skill.json")
+    copy("skill_homeassistant/locale/en-us/skill.json", "skill.json")

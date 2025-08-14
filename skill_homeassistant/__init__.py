@@ -115,6 +115,7 @@ class HomeAssistantSkill(OVOSSkill):
     def handle_rebuild_device_list(self, _: Message):
         self.ha_client.build_devices()
         self.speak_dialog("acknowledge")
+        self.gui.show_text("Rebuilding device list from Home Assistant")
 
     @intent_handler("enable.intent")
     def handle_enable_intent(self, _: Message):
@@ -136,16 +137,21 @@ class HomeAssistantSkill(OVOSSkill):
         if device:
             device_data = self.ha_client.handle_get_device(Message("", {"device": device}))
             if device_data:
+                device_name = (device_data.get("attributes", {}).get("friendly_name", device_data.get("name")),)
+                device_type = device_data.get("type")
+                device_state = device_data.get("state")
                 self.speak_dialog(
                     "device.status",
                     data={
-                        "device": device_data.get("attributes", {}).get("friendly_name", device_data.get("name")),
-                        "type": device_data.get("type"),
-                        "state": device_data.get("state"),
+                        "device": device_name,
+                        "type": device_type,
+                        "state": device_state,
                     },
                 )
+                self.gui.show_text(f"{device_name} ({device_type}) is {device_state}")
             else:
                 self.speak_dialog("device.not.found", {"device": device})
+                self.gui.show_text(f"Could not find device {device}")
             self.log.info(f"Trying to get device status for {device}")
         else:
             self.speak_dialog("no.parsed.device")
@@ -167,7 +173,12 @@ class HomeAssistantSkill(OVOSSkill):
         return device or None
 
     def _handle_device_response(
-        self, response: Optional[dict], device: str, success_dialog: str, success_data: Optional[dict] = None
+        self,
+        response: Optional[dict],
+        device: str,
+        success_dialog: str,
+        success_data: Optional[dict] = None,
+        success_message: str = "Successful operation!",
     ) -> bool:
         """Handle standard device operation response.
 
@@ -182,6 +193,7 @@ class HomeAssistantSkill(OVOSSkill):
         """
         if not response or response.get("response"):
             self.speak_dialog("device.not.found", {"device": device})
+            self.gui.show_text(f"Could not find device {device}")
             return False
 
         if device not in self.silent_entities:
@@ -190,6 +202,7 @@ class HomeAssistantSkill(OVOSSkill):
                 dialog_data.update(success_data)
             self.speak_dialog(success_dialog, dialog_data)
 
+        self.gui.show_text(f"{device}: {success_message}")
         return True
 
     @intent_handler("turn.on.intent")  # pragma: no cover
@@ -198,7 +211,9 @@ class HomeAssistantSkill(OVOSSkill):
         self.log.info(message.data)
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_turn_on(Message("", {"device": device}))
-            if not self._handle_device_response(response, device, "device.turned.on"):
+            if not self._handle_device_response(
+                response, device, "device.turned.on", success_message="Successfully turned on!"
+            ):
                 self.log.info(f"Trying to turn on device {device}")
 
     @intent_handler("turn.off.intent")  # pragma: no cover
@@ -208,7 +223,9 @@ class HomeAssistantSkill(OVOSSkill):
         self.log.info(message.data)
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_turn_off(Message("", {"device": device}))
-            if not self._handle_device_response(response, device, "device.turned.off"):
+            if not self._handle_device_response(
+                response, device, "device.turned.off", success_message="Successfully turned off/stopped!"
+            ):
                 self.log.info(f"Trying to turn off device {device}")
 
     @intent_handler("lights.get.brightness.intent")  # pragma: no cover
@@ -218,9 +235,14 @@ class HomeAssistantSkill(OVOSSkill):
             response = self.ha_client.handle_get_light_brightness(Message("", {"device": device}))
             if response and not response.get("response"):
                 if brightness := response.get("brightness"):
-                    self.speak_dialog("lights.current.brightness", data={"brightness": brightness, "device": device})
+                    self.speak_dialog(
+                        "lights.current.brightness",
+                        data={"brightness": brightness, "device": device},
+                    )
+                    self.gui.show_text(f"{device}: Current brightness {brightness}")
                     return
             self.speak_dialog("lights.status.not.available", data={"device": device})
+            self.gui.show_text(f"{device} not found in Home Assistant.")
 
     @intent_handler("lights.set.brightness.intent")  # pragma: no cover
     def handle_set_brightness_intent(self, message: Message):
@@ -239,6 +261,7 @@ class HomeAssistantSkill(OVOSSkill):
                 device,
                 "lights.current.brightness",
                 {"brightness": response.get("brightness")} if response else None,
+                success_message=f"Brightness set to {brightness}",
             ):
                 return
             self.log.info(f"Trying to set brightness of {brightness} for {device}")
@@ -248,11 +271,13 @@ class HomeAssistantSkill(OVOSSkill):
         self.log.info(message.data)
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_increase_light_brightness(Message("", {"device": device}))
+            brightness = response.get("brightness", "unknown percentage")
             if self._handle_device_response(
                 response,
                 device,
                 "lights.current.brightness",
-                {"brightness": response.get("brightness")} if response else None,
+                {"brightness": brightness} if response else None,
+                success_message=f"Increased brightness to {brightness}",
             ):
                 return
             self.log.info(f"Trying to increase brightness for {device}")
@@ -262,11 +287,13 @@ class HomeAssistantSkill(OVOSSkill):
         self.log.info(message.data)
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_decrease_light_brightness(Message("", {"device": device}))
+            brightness = response.get("brightness", "unknown percentage")
             if self._handle_device_response(
                 response,
                 device,
                 "lights.current.brightness",
-                {"brightness": response.get("brightness")} if response else None,
+                {"brightness": brightness},
+                success_message=f"Decreased brightness to {brightness}",
             ):
                 return
             self.log.info(f"Trying to decrease brightness for {device}")
@@ -279,8 +306,10 @@ class HomeAssistantSkill(OVOSSkill):
             if response and not response.get("response"):
                 if color := response.get("color"):
                     self.speak_dialog("lights.current.color", data={"color": color, "device": device})
+                    self.gui.show_text(f"{device}: Current color {color}")
                     return
             self.speak_dialog("lights.status.not.available", data={"device": device})
+            self.gui.show_text(f"Could not get color of {device}")
 
     @intent_handler("lights.set.color.intent")  # pragma: no cover
     def handle_set_color_intent(self, message: Message):
@@ -298,8 +327,13 @@ class HomeAssistantSkill(OVOSSkill):
 
         if device:
             response = self.ha_client.handle_set_light_color(Message("", {"device": device, "color": color}))
+            color = response.get("color", "unknown")
             if self._handle_device_response(
-                response, device, "lights.current.color", {"color": response.get("color")} if response else None
+                response,
+                device,
+                "lights.current.color",
+                {"color": color},
+                success_message=f"Set color to {color}",
             ):
                 return
             self.log.info(f"Trying to set color of {device}")
@@ -312,6 +346,7 @@ class HomeAssistantSkill(OVOSSkill):
             self.ha_client.handle_assist_message(Message("", {"command": command}))
             self.speak_dialog("assist")
             self.log.info(f"Trying to pass message to Home Assistant's Assist API:\n{command}")
+            self.gui.show_text(f"Sending message to Assist: {command}")
         else:
             self.speak_dialog("assist.not.understood")
 

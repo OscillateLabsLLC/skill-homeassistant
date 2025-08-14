@@ -292,6 +292,10 @@ class HomeAssistantSkill(OVOSSkill):
             self.speak_dialog("no.parsed.color")
             return
 
+        color = color.strip()
+        if color.startswith("to "):
+            color = color[3:].strip()
+
         if device:
             response = self.ha_client.handle_set_light_color(Message("", {"device": device, "color": color}))
             if self._handle_device_response(

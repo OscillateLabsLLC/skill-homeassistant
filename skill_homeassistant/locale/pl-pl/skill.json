@@ -1,0 +1,30 @@
+{
+    "skill_id": "skill_homeassistant.oscillatelabsllc",
+    "source": "https://github.com/oscillatelabsllc/skill-homeassistant",
+    "package_name": "skill-homeassistant",
+    "pip_spec": "skill-homeassistant",
+    "license": "Apache-2.0",
+    "author": [
+        "Mike Gray <mike@oscillatelabs.net>"
+    ],
+    "icon": "https://www.home-assistant.io/images/home-assistant-logo.svg",
+    "images": [],
+    "name": "skill-homeassistant",
+    "description": "skill-homeassistant",
+    "examples": [
+        "Jaki jest status lampy w salonie?",
+        "Włącz światło w kuchni"
+        "Zmień kolor lampy w salonie na niebieski"
+    ],
+    "tags": [
+        "ovos",
+        "neon",
+        "home",
+        "assistant",
+        "voice",
+        "interface",
+        "skill",
+        "plugin"
+    ],
+    "version": "0.1.0"
+}

@@ -1,0 +1,3 @@
+{type} {device} wskazuje stan {state}
+{type} o nazwie {device} obecnie jest {state}
+Asystent domowy mówi, że {type} {device} jest {state}

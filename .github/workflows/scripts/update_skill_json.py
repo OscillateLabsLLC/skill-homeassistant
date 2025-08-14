@@ -30,13 +30,13 @@
 import json
 from os.path import expanduser, isdir, join, isfile
 from pprint import pprint
-from shutil import move
+from shutil import copy, move
 from sys import argv
 
 
 def get_skill_json(skill_dir: str, lang_code: str = "en-us"):
     print(f"skill_dir={skill_dir}")
-    skill_json = join(skill_dir, "skill.json")
+    skill_json = join(skill_dir, f"skill_homeassistant/locale/{lang_code}/skill.json")
     skill_spec = get_poetry_skill_data(skill_dir, lang_code)
     pprint(skill_spec)
     try:
@@ -99,3 +99,4 @@ if __name__ == "__main__":
     supported_langs = ["en-us", "pl-pl"]
     for lang in supported_langs:
         get_skill_json(argv[1], lang_code=lang)
+    copy("./skill_homeassistant/locale/en-us/skill.json", "./skill.json")

@@ -35,7 +35,7 @@ ovos-config = ">=0.0.5"
 ovos-phal-plugin-oauth = ">=0.0.3"
 nested-lookup = ">=0.2,<1.0"
 webcolors = ">=24.11.1"
-urllib3 = ">=2.6.0"
+urllib3 = ">=2.6.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"

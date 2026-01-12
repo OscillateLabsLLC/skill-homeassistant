@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.2](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.5.1...v0.5.2) (2025-12-06)
+
+
+### Bug Fixes
+
+* **security:** urllib3 update ([44cfef2](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/44cfef2d95f8ab4b470e0c471a7e0e1a733308c9))
+
 ## [0.5.1](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.5.0...v0.5.1) (2025-08-14)
 
 

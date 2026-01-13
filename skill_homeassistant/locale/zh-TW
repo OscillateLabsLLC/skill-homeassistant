@@ -1,2 +1,2 @@
-current brightness for the requested {{device}} is {{brightness}} percent
-The {{device}} is at {{brightness}} percent brightness
+current color for the {{device}} is {{color}}
+The {{device}} is now a lovely shade of {{color}}

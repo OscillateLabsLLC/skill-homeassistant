@@ -1,3 +1,2 @@
-increase (|the) brightness of (|the|my) {entity}
-make (|the|my) {entity} brighter
-bump (|up) (|the) brightness of (|the|my) {entity}
+(set|change) (|the) brightness of (|the|my) {entity} to {brightness} (|percent)
+set (|the|my) {entity} brightness to {brightness} (|percent)

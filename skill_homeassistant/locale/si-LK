@@ -1,2 +1,3 @@
-(adjust|change|make) (|the|my) {entity} color (to |){color}
-(adjust|change|make) (|the|my) light {entity} (to |){color}
+(What is|Give me|Tell me|Get) (|the) (temperature|hue|value|state|status|read out) of (|the|my) {entity} (please|).
+is (|the|my) {entity} (on|off|high|low|cold|warm|hot|connected|disconnected|open|closed|dark|in motion|occupied|plugged in|secure|unsecure|charging|available)
+has (|the|my) {entity} detected (a|) (moisture|energy|problem|vibration|gas|sound)

@@ -1,4 +1,5 @@
-stop (|the|my) {entity}
-Can you stop (|the|my) {entity} please?
-I'd like to stop (|the|my) {entity}
-I would like (|the|my) {entity} stopped
+turn off (|the|my) {entity}
+turn (|the|my) {entity} off
+(Can|Would) you turn (off|) (|the|my) {entity} (off|) please?
+I'd like to turn (off|) (|the|my) {entity} (off|)
+I would like (|the|my) {entity} off

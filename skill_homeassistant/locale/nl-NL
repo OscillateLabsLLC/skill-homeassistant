@@ -1,5 +1,5 @@
-turn off (|the|my) {entity}
-turn (|the|my) {entity} off
-(Can|Would) you turn (off|) (|the|my) {entity} (off|) please?
-I'd like to turn (off|) (|the|my) {entity} (off|)
-I would like (|the|my) {entity} off
+turn on (|the|my) {entity}
+turn (|the|my) {entity} on
+(Can|Would) you turn (on|) (|the|my) {entity} (on|) please?
+I'd like to turn (on|) (|the|my) {entity} (on|)
+I would like (|the|my) {entity} on

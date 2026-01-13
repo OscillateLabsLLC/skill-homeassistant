@@ -1,3 +1,2 @@
-decrease (|the) brightness of (|the|my) {entity}
-make (|the|my) {entity} dimmer
-dim (|down) (|the) (|brightness) (|of) (|the|my) {entity}
+(get|query) the (|current) brightness of (|the|my) {entity}
+(what is|what's) the (|current) brightness of (|the|my) {entity}

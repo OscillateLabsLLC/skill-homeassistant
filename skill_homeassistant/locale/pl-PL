@@ -1,2 +1,3 @@
-(get|query) (|the) (|current) color of (|the|my) {entity}
-(what is|what's) (|the) (|current) color of (|the|my) {entity}
+increase (|the) brightness of (|the|my) {entity}
+make (|the|my) {entity} brighter
+bump (|up) (|the) brightness of (|the|my) {entity}

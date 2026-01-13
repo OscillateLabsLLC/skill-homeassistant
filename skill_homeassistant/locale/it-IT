@@ -1,3 +1,3 @@
-Requested {device} was not found. Please try again.
-Could not find {device} in Home Assistant.
-I'm sorry, Home Assistant didn't tell me about {device}.
+{type} {device} is showing a state of {state}
+The {type} called {device} is currently {state}
+Home Assistant tells me the {type} {device} is {state}

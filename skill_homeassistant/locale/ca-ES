@@ -1,2 +1,1 @@
-Sorry, I only know how to start, stop, or pause a vacuum, not {action}
-You asked me to {action} the vacuum, but I can only start, stop, or pause it.
+tell home assistant (|to){command}

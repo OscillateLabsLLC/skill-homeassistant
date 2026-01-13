@@ -1,2 +1,3 @@
-Sorry, I didn't catch what to tell Home Assistant.
-Would you please say what message to send Home Assistant again?
+Requested {device} was not found. Please try again.
+Could not find {device} in Home Assistant.
+I'm sorry, Home Assistant didn't tell me about {device}.

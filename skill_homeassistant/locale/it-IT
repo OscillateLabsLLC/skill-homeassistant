@@ -1,2 +1,2 @@
-Enabling Home Assistant intents!
-I'll start responding to Home Assistant intents.
+current brightness for the requested {{device}} is {{brightness}} percent
+The {{device}} is at {{brightness}} percent brightness

@@ -1,3 +1,3 @@
-incrementa (|el) brillo de (|el|la|mi) {entity}
-haz (|que) (|el|la|mi) {entity} (|sea) más brillante
-(incrementa|aumenta) (|el) brillo de (|el|la|mi) {entity}
+incrementa (|el) brillo de (|el|la|las|mi) {entity}
+haz (|que) (|el|la|las|mi) {entity} (|sea|sean) más brillante
+(incrementa|aumenta) (|el) brillo de (|el|la|las|mi) {entity}

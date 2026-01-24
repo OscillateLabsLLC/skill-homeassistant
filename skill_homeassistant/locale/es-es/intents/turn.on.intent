@@ -1,5 +1,5 @@
-Enciende (|el|la|mi) {entity}
-Cambia (|el|la|mi) {entity} a encendido
-(Puedes|Quieres) cambiar (a encendido|) (|el|la|mi) {entity} (a encendido|) por favor?
-Me gustaría cambiar (a encendido|) (|el|la|mi) {entity} (a encendido|)
-Quiero (|el|la|mi) {entity} encendido
+Enciende (|el|la|las|mi) {entity}
+Cambia (|el|la|las|mi) {entity} a encendido
+(Puedes|Quieres) cambiar (a encendido|) (|el|la|las|mi) {entity} (a encendido|) por favor?
+Me gustaría cambiar (a encendido|) (|el|la|las|mi) {entity} (a encendido|)
+Quiero (|el|la|las|mi) {entity} (encendido|encendida|encendidas)

@@ -10,7 +10,7 @@ from webcolors import (  # TODO: Use ovos-color-parser when it's ready
     rgb_to_name,
 )
 
-from skill_homeassistant.ha_client.logic.connector import HomeAssistantConnector
+from skill_homeassistant.ha_client.logic.base import HomeAssistantConnector
 
 
 class HomeAssistantDevice:

@@ -9,12 +9,16 @@ from skill_homeassistant.ha_client import HomeAssistantClient, SUPPORTED_DEVICES
 class FakeConnector:
     def __init__(self):
         self.callbacks = []
+        self.host = "http://fake.homeassistant.local"
 
     def register_callback(self, callback, *args):
         self.callbacks.append(callback)
 
     def turn_off(self, *args):
         return
+
+    def get_device_state(self, entity_id):
+        return {"entity_id": entity_id, "state": "on", "attributes": {}}
 
 
 class TestHomeAssistantClient(unittest.TestCase):
@@ -597,6 +601,166 @@ class TestHomeAssistantClient(unittest.TestCase):
             timeout=3,
             verify=False,
         )
+
+    def test_toggle_automations_default(self):
+        """Test toggle_automations property returns False by default."""
+        plugin = HomeAssistantClient(config={})
+        self.assertFalse(plugin.toggle_automations)
+
+    def test_toggle_automations_configured(self):
+        """Test toggle_automations property returns configured value."""
+        plugin = HomeAssistantClient(config={"toggle_automations": True})
+        self.assertTrue(plugin.toggle_automations)
+
+    def test_handle_get_devices(self):
+        """Test handle_get_devices returns list of device models."""
+        result = self.plugin.handle_get_devices()
+        self.assertIn("devices", result)
+        self.assertIsInstance(result["devices"], list)
+        self.assertGreater(len(result["devices"]), 0)
+
+    @patch("skill_homeassistant.ha_client.HomeAssistantRESTConnector")
+    def test_validate_instance_connection_success(self, mock_connector_class):
+        """Test validate_instance_connection returns True on success."""
+        mock_connector = Mock()
+        mock_connector.get_all_devices.return_value = [{"entity_id": "light.test"}]
+        mock_connector_class.return_value = mock_connector
+
+        result = self.plugin.validate_instance_connection(
+            "http://ha.local", "api_key", True, True
+        )
+
+        self.assertTrue(result)
+        mock_connector.get_all_devices.assert_called_once()
+
+    @patch("skill_homeassistant.ha_client.HomeAssistantRESTConnector")
+    def test_validate_instance_connection_failure(self, mock_connector_class):
+        """Test validate_instance_connection returns False on exception."""
+        mock_connector_class.side_effect = Exception("Connection failed")
+
+        result = self.plugin.validate_instance_connection(
+            "http://ha.local", "api_key", True, True
+        )
+
+        self.assertFalse(result)
+
+    def test_handle_call_supported_function_without_args(self):
+        """Test calling a function without additional arguments."""
+        fake_message = FakeMessage(
+            "ovos.phal.plugin.homeassistant.call.supported.function",
+            {
+                "device_id": "test_switch",
+                "function_name": "toggle",
+                # No function_args
+            },
+            None,
+        )
+        with patch.object(self.plugin.device_types["switch"], "call_function") as mock_call:
+            self.plugin.handle_call_supported_function(fake_message)
+            mock_call.assert_called_once_with("toggle")
+
+    def test_return_device_response_with_extra_args(self):
+        """Test _return_device_response logs warnings for extra args/kwargs."""
+        result = self.plugin._return_device_response(
+            "extra_arg",
+            device_id="test_switch",
+            extra_kwarg="value"
+        )
+        # Should still return the device despite extra args
+        self.assertIsNotNone(result)
+
+    def test_return_device_response_device_not_found(self):
+        """Test _return_device_response returns empty dict when device not found."""
+        result = self.plugin._return_device_response(device_id="nonexistent_device")
+        self.assertEqual(result, {})
+
+    def test_handle_assist_message_with_connector(self):
+        """Test handle_assist_message calls connector method."""
+        self.plugin.connector = Mock()
+        self.plugin.connector.send_assist_command.return_value = {"response": "ok"}
+        
+        fake_message = FakeMessage(
+            "ovos.phal.plugin.homeassistant.assist.message",
+            {"command": "turn on kitchen light"},
+            None,
+        )
+        
+        result = self.plugin.handle_assist_message(fake_message)
+        
+        self.plugin.connector.send_assist_command.assert_called_once_with("turn on kitchen light")
+        self.assertEqual(result, {"response": "ok"})
+
+    def test_handle_assist_message_without_connector(self):
+        """Test handle_assist_message returns None when no connector."""
+        self.plugin.connector = None
+        
+        fake_message = FakeMessage(
+            "ovos.phal.plugin.homeassistant.assist.message",
+            {"command": "turn on kitchen light"},
+            None,
+        )
+        
+        result = self.plugin.handle_assist_message(fake_message)
+        
+        self.assertIsNone(result)
+
+    def test_device_get_state(self):
+        """Test device get_state method."""
+        device = self.plugin.registered_devices[0]
+        state = device.get_state()
+        self.assertIsNotNone(state)
+
+    def test_device_get_id(self):
+        """Test device get_id method."""
+        device = self.plugin.registered_devices[0]
+        device_id = device.get_id()
+        self.assertEqual(device_id, device.device_id)
+
+    def test_device_get_name(self):
+        """Test device get_name method."""
+        device = self.plugin.registered_devices[0]
+        name = device.get_name()
+        self.assertIsNotNone(name)
+
+    def test_device_get_icon(self):
+        """Test device get_icon method."""
+        device = self.plugin.registered_devices[0]
+        icon = device.get_icon()
+        self.assertIsNotNone(icon)
+
+    def test_device_get_attributes(self):
+        """Test device get_attributes method."""
+        device = self.plugin.registered_devices[0]
+        attrs = device.get_attributes()
+        self.assertIsInstance(attrs, dict)
+
+    def test_device_is_on(self):
+        """Test device is_on method."""
+        # Find a device that's "on"
+        for device in self.plugin.registered_devices:
+            if device.device_state == "on":
+                self.assertTrue(device.is_on())
+                break
+
+    def test_device_is_off(self):
+        """Test device is_off method."""
+        # Find a device that's "off"
+        for device in self.plugin.registered_devices:
+            if device.device_state == "off":
+                self.assertTrue(device.is_off())
+                break
+
+    def test_device_get_has_device_class(self):
+        """Test device get_has_device_class method."""
+        device = self.plugin.registered_devices[0]
+        result = device.get_has_device_class()
+        self.assertIsInstance(result, bool)
+
+    def test_device_get_device_class(self):
+        """Test device get_device_class method."""
+        device = self.plugin.registered_devices[0]
+        # May be None if no device_class attribute
+        _ = device.get_device_class()
 
     @patch("requests.get")
     def test_config_removal_clears_state(self, mock_get):

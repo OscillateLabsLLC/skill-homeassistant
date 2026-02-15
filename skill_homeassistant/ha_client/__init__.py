@@ -116,7 +116,6 @@ class HomeAssistantClient:
         configuration_assist_only = self.config.get("assist_only", True)
         configuration_verify_ssl = self.config.get("verify_ssl", True)
         if configuration_host != "" and configuration_api_key != "":
-            self.instance_available = True  # TODO: Use the validator to check this
             self.connector = HomeAssistantRESTConnector(
                 host=configuration_host,
                 api_key=configuration_api_key,
@@ -125,6 +124,8 @@ class HomeAssistantClient:
                 timeout=self.config.get("timeout", 3),
             )
             self.devices = self.connector.get_all_devices()
+            if len(self.devices) > 0:
+                self.instance_available = True  # TODO: Use the validator to check this
             self.registered_devices = []
             self.build_devices()
         else:

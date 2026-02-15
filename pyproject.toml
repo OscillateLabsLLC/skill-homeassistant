@@ -89,3 +89,6 @@ disable = [
 
 [tool.coverage.run]
 relative_files = true
+omit = [
+    "skill_homeassistant/ha_client/logic/base.py",
+]

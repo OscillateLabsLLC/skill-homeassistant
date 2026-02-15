@@ -134,11 +134,13 @@ class HomeAssistantSkill(OVOSSkill):
     def get_device_intent(self, message: Message):
         """Handle intent to get a single device status from Home Assistant."""
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         device = message.data.get("entity", "")
         if device:
             device_data = self.ha_client.handle_get_device(Message("", {"device": device}))
             if device_data:
-                device_name = (device_data.get("attributes", {}).get("friendly_name", device_data.get("name")),)
+                device_name = device_data.get("attributes", {}).get("friendly_name", device_data.get("name"))
                 device_type = device_data.get("type")
                 device_state = device_data.get("state")
                 self.speak_dialog(
@@ -205,11 +207,31 @@ class HomeAssistantSkill(OVOSSkill):
 
         self.gui.show_text(f"{device}: {success_message}")
         return True
+    
+    def check_client_connection(self):
+        if not self.ha_client.instance_available:
+            try:
+                self.ha_client.init_configuration(self.settings)
+                if not self.ha_client.instance_available:
+                    raise Exception("Home Assistant instance is not available")
+                return True
+            except Exception as e:
+                self.log.error(f"Error initializing Home Assistant client: {e}")
+                self.gui.show_text("Connection to Home Assistant is not configured or unavailable. Please check skill settings.")
+                self.speak_dialog("device.status", data={
+                    "device": "Home Assistant",
+                    "type": "server",
+                    "state": "not configured, check your skill settings or connection to Home Assistant instance."
+                    })
+                return False
+        return True
 
     @intent_handler("turn.on.intent")  # pragma: no cover
     def handle_turn_on_intent(self, message: Message) -> None:
         """Handle turn on intent."""
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_turn_on(Message("", {"device": device}))
             if not self._handle_device_response(
@@ -222,6 +244,8 @@ class HomeAssistantSkill(OVOSSkill):
     def handle_turn_off_intent(self, message: Message) -> None:
         """Handle turn off intent."""
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_turn_off(Message("", {"device": device}))
             if not self._handle_device_response(
@@ -232,6 +256,8 @@ class HomeAssistantSkill(OVOSSkill):
     @intent_handler("lights.get.brightness.intent")  # pragma: no cover
     def handle_get_brightness_intent(self, message: Message):
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_get_light_brightness(Message("", {"device": device}))
             if response and not response.get("response"):
@@ -248,6 +274,8 @@ class HomeAssistantSkill(OVOSSkill):
     @intent_handler("lights.set.brightness.intent")  # pragma: no cover
     def handle_set_brightness_intent(self, message: Message):
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         device = self._get_device_from_message(message)
         brightness = message.data.get("brightness")
 
@@ -270,6 +298,8 @@ class HomeAssistantSkill(OVOSSkill):
     @intent_handler("lights.increase.brightness.intent")  # pragma: no cover
     def handle_increase_brightness_intent(self, message: Message):
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_increase_light_brightness(Message("", {"device": device}))
             brightness = response.get("brightness", "unknown percentage")
@@ -286,6 +316,8 @@ class HomeAssistantSkill(OVOSSkill):
     @intent_handler("lights.decrease.brightness.intent")  # pragma: no cover
     def handle_decrease_brightness_intent(self, message: Message):
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_decrease_light_brightness(Message("", {"device": device}))
             brightness = response.get("brightness", "unknown percentage")
@@ -302,6 +334,8 @@ class HomeAssistantSkill(OVOSSkill):
     @intent_handler("lights.get.color.intent")  # pragma: no cover
     def handle_get_color_intent(self, message: Message):
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         if device := self._get_device_from_message(message):
             response = self.ha_client.handle_get_light_color(Message("", {"device": device}))
             if response and not response.get("response"):
@@ -315,6 +349,8 @@ class HomeAssistantSkill(OVOSSkill):
     @intent_handler("lights.set.color.intent")  # pragma: no cover
     def handle_set_color_intent(self, message: Message):
         self.log.info(message.data)
+        if not self.check_client_connection():
+            return
         device = self._get_device_from_message(message)
         color = message.data.get("color")
 
@@ -342,6 +378,8 @@ class HomeAssistantSkill(OVOSSkill):
     @intent_handler("assist.intent")  # pragma: no cover
     def handle_assist_intent(self, message: Message):
         """Handle passthrough to Home Assistant's Assist API."""
+        if not self.check_client_connection():
+            return
         command = message.data.get("command")
         if command:
             self.ha_client.handle_assist_message(Message("", {"command": command}))

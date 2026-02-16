@@ -572,8 +572,10 @@ class TestHomeAssistantClient(unittest.TestCase):
 
     @patch("requests.get")
     def test_verify_ssl(self, mock_get):
-        test_config = {"configuration_host": "http://homeassistant.local", "configuration_api_key": "FAKE_API_KEY"}
-        self.plugin.init_configuration(**test_config)
+        # Set config directly, then call init_configuration
+        self.plugin.config["host"] = "http://homeassistant.local"
+        self.plugin.config["api_key"] = "FAKE_API_KEY"
+        self.plugin.init_configuration()
         mock_get.assert_called_with(
             "http://homeassistant.local/api/states",
             headers={"Authorization": "Bearer FAKE_API_KEY", "content-type": "application/json"},
@@ -584,7 +586,7 @@ class TestHomeAssistantClient(unittest.TestCase):
 
         # Change the config to set verify_ssl to False
         self.plugin.config["verify_ssl"] = False
-        self.plugin.init_configuration(self.plugin.config)
+        self.plugin.init_configuration()
         # Verify that verify_ssl is now False
         mock_get.assert_called_with(
             "http://homeassistant.local/api/states",

@@ -102,15 +102,12 @@ class HomeAssistantClient:
             return False
 
     # INSTANCE INIT OPERATIONS
-    def init_configuration(self, *args, **kwargs):
-        """Initialize instance configuration"""
-        LOG.info(f"Initializing configuration with args: {args} and kwargs: {kwargs}")
-        self.config["host"] = kwargs.get("configuration_host", self.config.get("host", ""))
-        self.config["api_key"] = kwargs.get("configuration_api_key", self.config.get("api_key", ""))
-        if args:
-            LOG.warning(
-                f"Received unexpected args: {args}, ignoring them in configuration initialization. Use kwargs instead."
-            )
+    def init_configuration(self, message=None):
+        """Initialize instance configuration.
+
+        Args:
+            message: Optional Message object from bus callback (ignored, config comes from self.config)
+        """
         configuration_host = self.config.get("host", "")
         configuration_api_key = self.config.get("api_key", "")
         configuration_assist_only = self.config.get("assist_only", True)

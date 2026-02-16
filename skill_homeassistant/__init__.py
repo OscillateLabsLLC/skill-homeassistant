@@ -11,7 +11,14 @@ from skill_homeassistant.ha_client import HomeAssistantClient
 class HomeAssistantSkill(OVOSSkill):
     """Unified Home Assistant skill for OpenVoiceOS or Neon.AI."""
 
-    _settings_defaults = {"silent_entities": set(), "disable_intents": False, "timeout": 5, "verify_ssl": True}
+    _settings_defaults = {
+        "host": "",
+        "api_key": "",
+        "silent_entities": set(),
+        "disable_intents": False,
+        "timeout": 5,
+        "verify_ssl": True,
+    }
     _intents_enabled = True
     connected_intents = (
         "sensor.intent",

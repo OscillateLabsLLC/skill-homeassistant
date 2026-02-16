@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.6.1...v0.6.2) (2026-02-16)
+
+
+### Bug Fixes
+
+* properly rebuild device list from Home Assistant on command ([4ea6742](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/4ea67428470b7d6286c2a07540794e70c4049852))
+
 ## [0.6.1](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.6.0...v0.6.1) (2026-02-16)
 
 

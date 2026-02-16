@@ -57,10 +57,6 @@ All available settings with their defaults:
 }
 ```
 
-### Legacy Configuration Support
-
-If you're migrating from the previous neon-homeassistant-skill with ovos-PHAL-plugin-homeassistant, the skill will automatically detect and use configuration from your `mycroft.conf` or `neon.yaml`. However, we recommend migrating to the new settings.json location.
-
 ### Hostname Considerations
 
 Mycroft Mark II may not support `.local` hostnames (e.g., `homeassistant.local`). Options include:

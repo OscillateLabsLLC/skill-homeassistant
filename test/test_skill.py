@@ -86,7 +86,7 @@ class TestSkillConfigFallback(unittest.TestCase):
     def test_get_client_config_no_config_returns_defaults(self):
         """When no config is found anywhere, return defaults and log error."""
         skill = HomeAssistantSkill(settings={})
-        skill.config_core = {}  # No PHAL config
+        skill.config_core = {}
         skill._startup(FakeBus(), "test_skill.config_none")
         config = skill._get_client_config()
         # Should return defaults

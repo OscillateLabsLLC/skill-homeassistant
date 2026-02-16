@@ -82,9 +82,6 @@ class HomeAssistantSkill(OVOSSkill):
     def _get_client_config(self) -> dict:
         if self.settings.get("host") and self.settings.get("api_key"):
             return {**self._settings_defaults, **self.settings}
-        phal_config = self.config_core.get("PHAL", {}).get("ovos-PHAL-plugin-homeassistant")
-        if phal_config:
-            return {**self._settings_defaults, **phal_config, **self.settings}
         self.log.error(
             "No Home Assistant config found! Please set host and api_key "
             f"in the skill settings at {self.settings_path}."

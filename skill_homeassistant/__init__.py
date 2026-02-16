@@ -70,6 +70,15 @@ class HomeAssistantSkill(OVOSSkill):
             self.log.info("User has indicated they do not want to use Home Assistant intents. Disabling.")
             self.disable_ha_intents()
 
+        # Register for settings changes to update client config
+        self.settings_change_callback = self._on_settings_changed
+
+    def _on_settings_changed(self):
+        """Handle settings changes by updating the Home Assistant client config."""
+        self.log.info("Settings changed, updating Home Assistant client configuration")
+        new_config = self._get_client_config()
+        self.ha_client.update_config(new_config)
+
     def _get_client_config(self) -> dict:
         if self.settings.get("host") and self.settings.get("api_key"):
             return {**self._settings_defaults, **self.settings}

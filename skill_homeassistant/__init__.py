@@ -130,9 +130,13 @@ class HomeAssistantSkill(OVOSSkill):
     # Handlers
     @intent_handler("get.all.devices.intent")
     def handle_rebuild_device_list(self, _: Message):
-        self.ha_client.build_devices()
-        self.speak_dialog("acknowledge")
-        self.gui.show_text("Rebuilding device list from Home Assistant")
+        if not self.check_client_connection():
+            self.log.warning("Cannot rebuild device list: Home Assistant connection not available")
+            return
+        self.gui.show_text("Refreshing device list from Home Assistant...")
+        device_count = self.ha_client.refresh_devices()
+        self.speak_dialog("rebuild.complete", data={"count": device_count})
+        self.gui.show_text(f"Device list refreshed: {device_count} devices found")
 
     @intent_handler("enable.intent")
     def handle_enable_intent(self, _: Message):

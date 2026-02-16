@@ -122,12 +122,6 @@ class HomeAssistantClient:
         Args:
             message: Optional Message object from bus callback (ignored, config comes from self.config)
         """
-    def init_configuration(self, message=None):
-        """Initialize instance configuration.
-
-        Args:
-            message: Optional Message object from bus callback (ignored, config comes from self.config)
-        """
         configuration_host = self.config.get("host", "")
         configuration_api_key = self.config.get("api_key", "")
         configuration_assist_only = self.config.get("assist_only", True)

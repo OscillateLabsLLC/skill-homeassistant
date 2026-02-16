@@ -809,3 +809,47 @@ class TestHomeAssistantClient(unittest.TestCase):
         self.assertEqual(test_plugin.config["api_key"], "NEW_KEY")
         self.assertTrue(test_plugin.instance_available)
         self.assertIsNotNone(test_plugin.connector)
+
+    @patch("requests.get")
+    def test_refresh_devices_fetches_fresh_data(self, mock_get):
+        """Test that refresh_devices fetches fresh data from HA and rebuilds list."""
+        test_plugin = HomeAssistantClient(config={})
+
+        # Set up initial config with one device
+        test_plugin.config["host"] = "http://homeassistant.local"
+        test_plugin.config["api_key"] = "FAKE_API_KEY"
+        mock_get.return_value.json.return_value = [
+            {"entity_id": "light.test", "state": "on", "attributes": {"friendly_name": "Test Light"}}
+        ]
+        test_plugin.init_configuration()
+
+        # Verify initial state
+        self.assertEqual(len(test_plugin.registered_devices), 1)
+        self.assertEqual(test_plugin.registered_device_names, ["Test Light"])
+
+        # Now simulate HA returning more devices
+        mock_get.return_value.json.return_value = [
+            {"entity_id": "light.test", "state": "on", "attributes": {"friendly_name": "Test Light"}},
+            {"entity_id": "light.new", "state": "off", "attributes": {"friendly_name": "New Light"}},
+            {"entity_id": "switch.test", "state": "on", "attributes": {"friendly_name": "Test Switch"}},
+        ]
+
+        # Call refresh_devices
+        count = test_plugin.refresh_devices()
+
+        # Verify fresh data was fetched and list was rebuilt
+        self.assertEqual(count, 3)
+        self.assertEqual(len(test_plugin.registered_devices), 3)
+        self.assertIn("New Light", test_plugin.registered_device_names)
+        self.assertIn("Test Switch", test_plugin.registered_device_names)
+
+    def test_refresh_devices_no_connector(self):
+        """Test that refresh_devices returns 0 when no connector is configured."""
+        test_plugin = HomeAssistantClient(config={})
+
+        # No connector configured
+        self.assertIsNone(test_plugin.connector)
+
+        # refresh_devices should return 0 and not crash
+        count = test_plugin.refresh_devices()
+        self.assertEqual(count, 0)

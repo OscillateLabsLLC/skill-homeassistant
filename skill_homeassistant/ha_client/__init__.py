@@ -147,8 +147,32 @@ class HomeAssistantClient:
             self.registered_devices = []
             self.registered_device_names = []
 
+    def refresh_devices(self) -> int:
+        """Refresh devices from Home Assistant API.
+
+        Fetches fresh device data from HA and rebuilds the device list.
+
+        Returns:
+            int: The number of devices registered after refresh.
+        """
+        if not self.connector:
+            LOG.warning("Cannot refresh devices: no connector configured")
+            return 0
+
+        LOG.info("Refreshing device list from Home Assistant")
+        self.devices = self.connector.get_all_devices()
+        self.registered_devices = []
+        self.registered_device_names = []
+        self.build_devices()
+        LOG.info(f"Device refresh complete: {len(self.registered_devices)} devices registered")
+        return len(self.registered_devices)
+
     def build_devices(self, *args, **kwargs):
-        """Build the devices from the Home Assistant API"""
+        """Build the devices from the cached device list.
+
+        Note: This processes self.devices but does not fetch fresh data.
+        Use refresh_devices() to fetch fresh data from Home Assistant.
+        """
         LOG.info(f"Initializing configuration with args: {args} and kwargs: {kwargs}")
         for device in self.devices:
             device_type = map_entity_to_device_type(device["entity_id"])

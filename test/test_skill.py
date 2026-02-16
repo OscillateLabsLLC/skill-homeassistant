@@ -27,10 +27,18 @@ class TestSkillIntentMatching(unittest.TestCase):
         cls.skill._startup(cls.bus, cls.test_skill_id)
 
     @patch("requests.get")
-    def test_get_all_devices(self, mock_get):
+    def test_rebuild_device_list(self, mock_get):
+        """Test that rebuild device list calls refresh_devices and speaks completion."""
         self.skill.speak_dialog = Mock()
+        self.skill.check_client_connection = Mock(return_value=True)
+        self.skill.ha_client.refresh_devices = Mock(return_value=5)
+        self.skill.gui = Mock()
+
         self.skill.handle_rebuild_device_list(Message(msg_type="test"))
-        self.skill.speak_dialog.assert_called_once_with("acknowledge")
+
+        self.skill.ha_client.refresh_devices.assert_called_once()
+        self.skill.speak_dialog.assert_called_once_with("rebuild.complete", data={"count": 5})
+        self.skill.gui.show_text.assert_called_with("Device list refreshed: 5 devices found")
 
     @patch("requests.get")
     def test_verify_ssl_config_default(self, mock_get):

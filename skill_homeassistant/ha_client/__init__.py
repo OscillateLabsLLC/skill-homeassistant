@@ -46,10 +46,13 @@ class HomeAssistantClient:
         self.init_configuration()
 
     def _register_bus_events(self) -> None:
-        """Register message bus events. Only call if self.bus is not None."""
+        """Register message bus events. Only call if self.bus is not None.
+
+        Note: configuration.updated/configuration.patch are NOT handled here.
+        The skill layer owns settings and should call update_config() when they change.
+        """
         assert self.bus is not None  # Help type checker understand bus cannot be None here
-        self.bus.on("configuration.updated", self.init_configuration)
-        self.bus.on("configuration.patch", self.init_configuration)
+        # Currently no bus events registered here - skill handles config changes
 
     def get_brightness_increment(self) -> int:
         """Get the brightness increment from the config
@@ -102,6 +105,17 @@ class HomeAssistantClient:
             return False
 
     # INSTANCE INIT OPERATIONS
+    def update_config(self, new_config: dict) -> None:
+        """Update the client configuration and reinitialize.
+
+        Call this when skill settings change to push new config to the client.
+
+        Args:
+            new_config: New configuration dict with host, api_key, etc.
+        """
+        self.config.update(new_config)
+        self.init_configuration()
+
     def init_configuration(self, message=None):
         """Initialize instance configuration.
 

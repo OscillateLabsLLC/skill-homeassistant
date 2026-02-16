@@ -41,6 +41,20 @@ class TestSkillIntentMatching(unittest.TestCase):
         self.skill.gui.show_text.assert_called_with("Device list refreshed: 5 devices found")
 
     @patch("requests.get")
+    def test_rebuild_device_list_no_connection(self, mock_get):
+        """Test that rebuild device list returns early when connection unavailable."""
+        self.skill.check_client_connection = Mock(return_value=False)
+        self.skill.ha_client.refresh_devices = Mock()
+        self.skill.log = Mock()
+
+        self.skill.handle_rebuild_device_list(Message(msg_type="test"))
+
+        self.skill.log.warning.assert_called_once_with(
+            "Cannot rebuild device list: Home Assistant connection not available"
+        )
+        self.skill.ha_client.refresh_devices.assert_not_called()
+
+    @patch("requests.get")
     def test_verify_ssl_config_default(self, mock_get):
         self.assertTrue(self.skill.verify_ssl)
         self.assertTrue(self.skill.ha_client.config.get("verify_ssl"))

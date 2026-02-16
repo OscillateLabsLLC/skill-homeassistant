@@ -572,10 +572,13 @@ class TestHomeAssistantClient(unittest.TestCase):
 
     @patch("requests.get")
     def test_verify_ssl(self, mock_get):
+        # Use a separate plugin instance to avoid mutating shared state
+        test_plugin = HomeAssistantClient(config={})
+
         # Set config directly, then call init_configuration
-        self.plugin.config["host"] = "http://homeassistant.local"
-        self.plugin.config["api_key"] = "FAKE_API_KEY"
-        self.plugin.init_configuration()
+        test_plugin.config["host"] = "http://homeassistant.local"
+        test_plugin.config["api_key"] = "FAKE_API_KEY"
+        test_plugin.init_configuration()
         mock_get.assert_called_with(
             "http://homeassistant.local/api/states",
             headers={"Authorization": "Bearer FAKE_API_KEY", "content-type": "application/json"},
@@ -585,8 +588,8 @@ class TestHomeAssistantClient(unittest.TestCase):
         mock_get.reset_mock()
 
         # Change the config to set verify_ssl to False
-        self.plugin.config["verify_ssl"] = False
-        self.plugin.init_configuration()
+        test_plugin.config["verify_ssl"] = False
+        test_plugin.init_configuration()
         # Verify that verify_ssl is now False
         mock_get.assert_called_with(
             "http://homeassistant.local/api/states",
@@ -594,3 +597,51 @@ class TestHomeAssistantClient(unittest.TestCase):
             timeout=3,
             verify=False,
         )
+
+    @patch("requests.get")
+    def test_config_removal_clears_state(self, mock_get):
+        """Test that removing config clears connector and device state."""
+        # Use a separate plugin instance to avoid mutating shared state
+        test_plugin = HomeAssistantClient(config={})
+
+        # First, set up a valid connection
+        test_plugin.config["host"] = "http://homeassistant.local"
+        test_plugin.config["api_key"] = "FAKE_API_KEY"
+        mock_get.return_value.json.return_value = [{"entity_id": "light.test", "state": "on"}]
+        test_plugin.init_configuration()
+
+        # Verify we have a connection
+        self.assertTrue(test_plugin.instance_available)
+        self.assertIsNotNone(test_plugin.connector)
+
+        # Now remove the config
+        test_plugin.config["host"] = ""
+        test_plugin.config["api_key"] = ""
+        test_plugin.init_configuration()
+
+        # Verify state is cleared
+        self.assertFalse(test_plugin.instance_available)
+        self.assertIsNone(test_plugin.connector)
+        self.assertEqual(test_plugin.devices, [])
+        self.assertEqual(test_plugin.registered_devices, [])
+        self.assertEqual(test_plugin.registered_device_names, [])
+
+    @patch("requests.get")
+    def test_update_config(self, mock_get):
+        """Test that update_config updates config and reinitializes."""
+        # Use a separate plugin instance to avoid mutating shared state
+        test_plugin = HomeAssistantClient(config={})
+
+        # Start with no config
+        self.assertFalse(test_plugin.instance_available)
+
+        # Use update_config to add configuration
+        mock_get.return_value.json.return_value = [{"entity_id": "light.test", "state": "on"}]
+        new_config = {"host": "http://new-ha.local", "api_key": "NEW_KEY"}
+        test_plugin.update_config(new_config)
+
+        # Verify config was updated and client initialized
+        self.assertEqual(test_plugin.config["host"], "http://new-ha.local")
+        self.assertEqual(test_plugin.config["api_key"], "NEW_KEY")
+        self.assertTrue(test_plugin.instance_available)
+        self.assertIsNotNone(test_plugin.connector)

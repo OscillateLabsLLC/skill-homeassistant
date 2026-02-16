@@ -140,7 +140,12 @@ class HomeAssistantClient:
             self.registered_devices = []
             self.build_devices()
         else:
+            # Clear stale connection state when config is removed
             self.instance_available = False
+            self.connector = None
+            self.devices = []
+            self.registered_devices = []
+            self.registered_device_names = []
 
     def build_devices(self, *args, **kwargs):
         """Build the devices from the Home Assistant API"""

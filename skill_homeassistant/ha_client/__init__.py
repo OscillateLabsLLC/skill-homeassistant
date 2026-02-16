@@ -34,7 +34,6 @@ class HomeAssistantClient:
         self.registered_devices = []  # Device objects
         self.registered_device_names = []  # Device friendly/entity names
 
-        self.munged_id = "ovos-PHAL-plugin-homeassistant_homeassistant-phal-plugin"
         self.instance_available = False
         self.device_types = SUPPORTED_DEVICES
         self.brightness_increment = self.get_brightness_increment()

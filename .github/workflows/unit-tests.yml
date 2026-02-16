@@ -36,7 +36,7 @@ jobs:
         if: always()
         with:
           name: pytest-results
-          path: tests/unit-test-results.xml
+          path: test/unit-test-results.xml
           reporter: java-junit
 
       - name: Coverage comment

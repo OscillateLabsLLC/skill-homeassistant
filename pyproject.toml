@@ -28,7 +28,7 @@ test = ["neon-minerva"]
 python = "^3.9,<4.0"
 ovos-bus-client = ">=0.0.8"
 ovos-workshop = ">=0.0.15"
-setuptools = "^80.9.0"
+setuptools = "<81.0"
 ovos-plugin-manager = ">=0.0.23"
 ovos-utils = ">=0.0.27"
 ovos-config = ">=0.0.5"
@@ -68,7 +68,7 @@ profile = "black"
 
 [tool.poe.tasks.test]
 help = "Run the test suite"
-cmd = "pytest --cov=skill_homeassistant --cov-report term-missing --cov-report xml --junitxml=tests/unit-test-results.xml -vv test/"
+cmd = "pytest --cov=skill_homeassistant --cov-report term-missing --cov-report xml --junitxml=test/unit-test-results.xml -vv test/"
 
 [tool.poe.tasks.format]
 help = "Run code formatters"

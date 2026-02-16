@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.6.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.5.3...v0.6.0) (2026-02-16)
+
+
+### Features
+
+* lazy load HA client connection and give user instructions ([7bea00e](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/7bea00e862c80938623e954ae5670e7cfabc8964))
+
+
+### Bug Fixes
+
+* bus callback for config init ([a7bef9f](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/a7bef9f03ee2961ff178903c3538ff95ec899da8))
+* removing required config also removes prior valid connection ([752dfe9](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/752dfe9a6326a2f02a0c7f7126a5cbd4dac81502))
+* settings change owned fully by skill ([9b6b4dd](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/9b6b4dde20a7208277251b630b0911aff63a0796))
+
 ## [0.5.3](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.5.2...v0.5.3) (2026-01-12)
 
 

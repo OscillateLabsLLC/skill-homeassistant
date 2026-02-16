@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.0.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.6.2...v1.0.0) (2026-02-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove support for old PHAL plugin config
+* switch plugin entrypoint to OVOS standard
+
+### Features
+
+* remove support for old PHAL plugin config ([32d7463](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/32d74630913276330cee031cf7251a9bebc55fec))
+* switch plugin entrypoint to OVOS standard ([e0696fe](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/e0696fe89c407588e9a56292e9aad17a749c41eb))
+
 ## [0.6.2](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.6.1...v0.6.2) (2026-02-16)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.6.0...v0.6.1) (2026-02-16)
+
+
+### Bug Fixes
+
+* bus callback for config init ([ef99d04](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/ef99d0420ec85336d0e0bb11320fc618487ab80e))
+
 ## [0.6.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.5.3...v0.6.0) (2026-02-16)
 
 

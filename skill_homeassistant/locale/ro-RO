@@ -1,2 +1,30 @@
-Sorry, I didn't catch what to tell Home Assistant.
-Would you please say what message to send Home Assistant again?
+{
+    "skill_id": "skill_homeassistant.oscillatelabsllc",
+    "source": "https://github.com/oscillatelabsllc/skill-homeassistant",
+    "package_name": "skill-homeassistant",
+    "pip_spec": "skill-homeassistant",
+    "license": "Apache-2.0",
+    "author": [
+        "Mike Gray <mike@oscillatelabs.net>"
+    ],
+    "icon": "https://www.home-assistant.io/images/home-assistant-logo.svg",
+    "images": [],
+    "name": "skill-homeassistant",
+    "description": "skill-homeassistant",
+    "examples": [
+        "What is the status of the living room light?",
+        "Turn on the kitchen light",
+        "Change light bedside lamp to blue"
+    ],
+    "tags": [
+        "ovos",
+        "neon",
+        "home",
+        "assistant",
+        "voice",
+        "interface",
+        "skill",
+        "plugin"
+    ],
+    "version": "0.6.2"
+}

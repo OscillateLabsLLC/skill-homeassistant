@@ -163,7 +163,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     # Get device
     def test_return_device_response_when_passed_explicitly(self):
         # Device passed explicitly
-        fake_message = FakeMessage("ovos.phal.plugin.homeassistant.turn.on", {"device_id": "test_switch"}, None)
+        fake_message = FakeMessage("test.message", {"device_id": "test_switch"}, None)
         with patch.object(self.plugin, "_return_device_response") as mock_call:
             with patch.object(self.plugin, "fuzzy_match_name") as mock_fuzzy_search:
                 self.plugin.handle_get_device(fake_message)
@@ -172,7 +172,7 @@ class TestHomeAssistantClient(unittest.TestCase):
 
     def test_return_device_response_when_fuzzy_searching(self):
         # Device exists but STT is fuzzy
-        fake_message = FakeMessage("ovos.phal.plugin.homeassistant.get.device", {"device": "test switch"}, None)
+        fake_message = FakeMessage("test.message", {"device": "test switch"}, None)
         with patch.object(self.plugin, "_return_device_response") as mock_call:
             with patch.object(self.plugin, "fuzzy_match_name") as mock_fuzzy_search:
                 self.plugin.handle_get_device(fake_message)
@@ -181,7 +181,7 @@ class TestHomeAssistantClient(unittest.TestCase):
 
     def test_return_device_response_when_device_does_not_exist(self):
         # Device does not exist
-        bad_message = FakeMessage("ovos.phal.plugin.homeassistant.get.device", {"device": "NOT REAL"}, None)
+        bad_message = FakeMessage("test.message", {"device": "NOT REAL"}, None)
         with patch.object(self.plugin, "_return_device_response") as mock_call:
             with patch.object(self.plugin, "fuzzy_match_name", return_value=None) as mock_fuzzy_search:
                 self.plugin.handle_get_device(bad_message)
@@ -191,7 +191,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     # Turn on device
     def test_handle_turn_on_with_device_id(self):
         # Device passed explicitly
-        fake_message = FakeMessage("ovos.phal.plugin.homeassistant.turn.on", {"device_id": "test_switch"}, None)
+        fake_message = FakeMessage("test.message", {"device_id": "test_switch"}, None)
         with patch.object(self.plugin.device_types["switch"], "turn_on") as mock_call:
             with patch.object(self.plugin, "fuzzy_match_name") as mock_fuzzy_search:
                 self.plugin.handle_turn_on(fake_message)
@@ -200,7 +200,7 @@ class TestHomeAssistantClient(unittest.TestCase):
 
     def test_handle_turn_on_fuzzy_search(self):
         # Device exists but STT is fuzzy
-        fake_message = FakeMessage("ovos.phal.plugin.homeassistant.turn.on", {"device": "test switch"}, None)
+        fake_message = FakeMessage("test.message", {"device": "test switch"}, None)
         with patch.object(self.plugin.device_types["switch"], "turn_on") as mock_call:
             with patch.object(self.plugin, "fuzzy_match_name", return_value="test_switch") as mock_fuzzy_search:
                 self.plugin.handle_turn_on(fake_message)
@@ -209,7 +209,7 @@ class TestHomeAssistantClient(unittest.TestCase):
 
     def test_handle_turn_on_device_does_not_exist(self):
         # Device does not exist
-        bad_message = FakeMessage("ovos.phal.plugin.homeassistant.turn.on", {"device": "NOT REAL"}, None)
+        bad_message = FakeMessage("test.message", {"device": "NOT REAL"}, None)
         with patch.object(self.plugin.device_types["switch"], "turn_on") as mock_call:
             with patch.object(self.plugin, "fuzzy_match_name", return_value=None) as mock_fuzzy_search:
                 self.plugin.handle_turn_on(bad_message)
@@ -220,7 +220,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_turn_off_with_device_id(self):
         # Device passed explicitly
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.turn.off",
+            "test.message",
             {"device_id": "test_switch"},
             None,
         )
@@ -232,7 +232,7 @@ class TestHomeAssistantClient(unittest.TestCase):
 
     def test_handle_turn_off_fuzzy_search(self):
         # Device exists but STT is fuzzy
-        fake_message = FakeMessage("ovos.phal.plugin.homeassistant.turn.off", {"device": "test switch"}, None)
+        fake_message = FakeMessage("test.message", {"device": "test switch"}, None)
         with patch.object(self.plugin.device_types["switch"], "turn_off") as mock_call:
             with patch.object(self.plugin, "fuzzy_match_name", return_value="test_switch") as mock_fuzzy_search:
                 self.plugin.handle_turn_off(fake_message)
@@ -241,7 +241,7 @@ class TestHomeAssistantClient(unittest.TestCase):
 
     def test_handle_turn_off_device_does_not_exist(self):
         # Device does not exist
-        bad_message = FakeMessage("ovos.phal.plugin.homeassistant.turn.off", {"device": "NOT REAL"}, None)
+        bad_message = FakeMessage("test.message", {"device": "NOT REAL"}, None)
         with patch.object(self.plugin.device_types["switch"], "turn_off") as mock_call:
             with patch.object(self.plugin, "fuzzy_match_name", return_value=None) as mock_fuzzy_search:
                 self.plugin.handle_turn_off(bad_message)
@@ -252,7 +252,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_called_supported_function_with_device_id(self):
         # Device passed explicitly
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.call.supported.function",
+            "test.message",
             {
                 "device_id": "test_switch",
                 "function_name": "order_66",
@@ -269,7 +269,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_called_supported_function_fuzzy_search(self):
         # Device exists but STT is fuzzy
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.call.supported.function",
+            "test.message",
             {
                 "device": "test switch",
                 "function_name": "order_66",
@@ -286,7 +286,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_called_supported_function_device_does_not_exist(self):
         # Device does not exist
         bad_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.call.supported.function",
+            "test.message",
             {
                 "device": "NOT REAL",
                 "function_name": "order_66",
@@ -304,7 +304,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_get_light_brightness_with_device_id(self):
         # Device passed explicitly
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.get.light.brightness",
+            "test.message",
             {"device_id": "test_light"},
             None,
         )
@@ -317,7 +317,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_get_light_brightness_fuzzy_search(self):
         # Device exists but STT is fuzzy
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.get.light.brightness",
+            "test.message",
             {"device": "test_switch"},
             None,
         )
@@ -330,7 +330,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_get_light_brightness_device_does_not_exist(self):
         # Device does not exist
         bad_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.get.light.brightness",
+            "test.message",
             {"device": "NOT REAL"},
             None,
         )
@@ -344,7 +344,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_set_light_brightness_with_device_id(self):
         # Device passed explicitly
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.set.light.brightness",
+            "test.message",
             {"device_id": "test_light", "brightness": 200},
             None,
         )
@@ -357,7 +357,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_set_light_brightness_fuzzy_search(self):
         # Device exists but STT is fuzzy
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.set.light.brightness",
+            "test.message",
             {"device": "test_switch", "brightness": 200},
             None,
         )
@@ -370,7 +370,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_set_light_brightness_device_does_not_exist(self):
         # Device does not exist
         bad_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.set.light.brightness",
+            "test.message",
             {"device": "NOT REAL", "brightness": 200},
             None,
         )
@@ -384,7 +384,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_increase_light_brightness_with_device_id(self):
         # Device passed explicitly
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.increase.light.brightness",
+            "test.message",
             {"device_id": "test_light"},
             None,
         )
@@ -397,7 +397,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_increase_light_brightness_fuzzy_search(self):
         # Device exists but STT is fuzzy
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.increase.light.brightness",
+            "test.message",
             {"device": "test_switch"},
             None,
         )
@@ -410,7 +410,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_increase_light_brightness_device_does_not_exist(self):
         # Device does not exist
         bad_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.increase.light.brightness",
+            "test.message",
             {"device": "NOT REAL"},
             None,
         )
@@ -424,7 +424,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_decrease_light_brightness_with_device_id(self):
         # Device passed explicitly
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.decrease.light.brightness",
+            "test.message",
             {"device_id": "test_light"},
             None,
         )
@@ -437,7 +437,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_decrease_light_brightness_fuzzy_search(self):
         # Device exists but STT is fuzzy
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.decrease.light.brightness",
+            "test.message",
             {"device": "test_switch"},
             None,
         )
@@ -450,7 +450,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_decrease_light_brightness_device_does_not_exist(self):
         # Device does not exist
         bad_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.decrease.light.brightness",
+            "test.message",
             {"device": "NOT REAL"},
             None,
         )
@@ -464,7 +464,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_get_light_color_with_device_id(self):
         # Device passed explicitly
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.get.light.color",
+            "test.message",
             {"device_id": "test_light"},
             None,
         )
@@ -477,7 +477,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_get_light_color_fuzzy_search(self):
         # Device exists but STT is fuzzy
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.get.light.color",
+            "test.message",
             {"device": "test_light"},
             None,
         )
@@ -490,7 +490,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_get_light_color_device_does_not_exist(self):
         # Device does not exist
         bad_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.get.light.color",
+            "test.message",
             {"device": "NOT REAL"},
             None,
         )
@@ -504,7 +504,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_set_light_color_with_device_id(self):
         # Device passed explicitly
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.set.light.color",
+            "test.message",
             {"device_id": "test_light", "color": "red"},
             None,
         )
@@ -517,7 +517,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_set_light_color_fuzzy_search(self):
         # Device exists but STT is fuzzy
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.set.light.color",
+            "test.message",
             {"device": "test_light", "color": "red"},
             None,
         )
@@ -530,7 +530,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_set_light_color_device_does_not_exist(self):
         # Device does not exist
         bad_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.set.light.color",
+            "test.message",
             {"device": "NOT REAL", "color": "red"},
             None,
         )
@@ -647,7 +647,7 @@ class TestHomeAssistantClient(unittest.TestCase):
     def test_handle_call_supported_function_without_args(self):
         """Test calling a function without additional arguments."""
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.call.supported.function",
+            "test.message",
             {
                 "device_id": "test_switch",
                 "function_name": "toggle",
@@ -680,7 +680,7 @@ class TestHomeAssistantClient(unittest.TestCase):
         self.plugin.connector.send_assist_command.return_value = {"response": "ok"}
         
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.assist.message",
+            "test.message",
             {"command": "turn on kitchen light"},
             None,
         )
@@ -695,7 +695,7 @@ class TestHomeAssistantClient(unittest.TestCase):
         self.plugin.connector = None
         
         fake_message = FakeMessage(
-            "ovos.phal.plugin.homeassistant.assist.message",
+            "test.message",
             {"command": "turn on kitchen light"},
             None,
         )

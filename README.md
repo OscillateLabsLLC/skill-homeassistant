@@ -1,5 +1,7 @@
 # Home Assistant Skill
 
+[![Status: Active](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/OscillateLabsLLC/.github/blob/main/SUPPORT_STATUS.md)
+
 Control your Home Assistant smart home devices through OVOS or Neon.AI voice assistants.
 
 This unified skill replaces the legacy `neon-homeassistant-skill` and `ovos-PHAL-plugin-homeassistant`. **Note: Do not install this skill alongside the legacy versions.**

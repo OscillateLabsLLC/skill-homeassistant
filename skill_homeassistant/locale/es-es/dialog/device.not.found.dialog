@@ -1,6 +1,3 @@
-Requested {device} was not found. Please try again.
-Could not find {device} in Home Assistant.
-I'm sorry, Home Assistant didn't tell me about {device}.
 {device} solicitado no encontrado. Inténtalo de nuevo.
 No se pudo encontrar {device} en Home Assistant.
 Lo siento, Home Assistant no me informó sobre {device}.

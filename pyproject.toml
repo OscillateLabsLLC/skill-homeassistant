@@ -79,10 +79,10 @@ shell = "black --line-length=119 skill_homeassistant && isort --overwrite-in-pla
 "neon-homeassistant-skill" = "skill_homeassistant:HomeAssistantSkill"
 
 [tool.poetry.plugins."opm.skill"]
-"skill_homeassistant.oscillatelabsllc" = "skill_homeassistant:HomeAssistantSkill"
+"skill-homeassistant.oscillatelabsllc" = "skill_homeassistant:HomeAssistantSkill"
 
 [tool.poetry.plugins."ovos.plugin.skill"]
-"skill_homeassistant.oscillatelabsllc" = "skill_homeassistant:HomeAssistantSkill"
+"skill-homeassistant.oscillatelabsllc" = "skill_homeassistant:HomeAssistantSkill"
 
 [tool.pylint.messages_control]
 disable = [

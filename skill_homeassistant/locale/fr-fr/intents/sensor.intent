@@ -1,7 +1,34 @@
 quel est l'état de {entity}
 donne-moi la valeur de {entity}
+donne-moi l'état de {entity}
+quelle est la valeur de {entity}
+quelle est la température de {entity}
+quelle est la teinte de {entity}
 est-ce que {entity} est allumé
+est-ce que {entity} est allumée
 est-ce que {entity} est éteint
+est-ce que {entity} est éteinte
 est-ce que {entity} est ouvert
+est-ce que {entity} est ouverte
 est-ce que {entity} est fermé
+est-ce que {entity} est fermée
+est-ce que {entity} est connecté
+est-ce que {entity} est connectée
+est-ce que {entity} est déconnecté
+est-ce que {entity} est déconnectée
+est-ce que {entity} est en mouvement
+est-ce que {entity} est occupé
+est-ce que {entity} est occupée
+est-ce que {entity} est en charge
+est-ce que {entity} est disponible
+est-ce que {entity} est sécurisé
+est-ce que {entity} n'est pas sécurisé
+est-ce que {entity} est chaud
+est-ce que {entity} est chaude
+est-ce que {entity} est froid
+est-ce que {entity} est froide
 est-ce que {entity} a détecté de l'humidité
+est-ce que {entity} a détecté du gaz
+est-ce que {entity} a détecté un problème
+est-ce que {entity} a détecté des vibrations
+est-ce que {entity} a détecté du bruit

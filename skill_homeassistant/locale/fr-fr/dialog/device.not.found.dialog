@@ -1,2 +1,3 @@
 Je n'ai pas trouvé {device}. Réessayez.
 Impossible de trouver {device} dans Home Assistant.
+Désolé, Home Assistant n'a rien trouvé pour {device}.

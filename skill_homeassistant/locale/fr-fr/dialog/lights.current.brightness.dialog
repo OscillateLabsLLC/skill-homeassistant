@@ -1,2 +1,3 @@
-La luminosité actuelle de {{device}} est de {{brightness}} pour cent.
-{{device}} est réglé à {{brightness}} pour cent de luminosité.
+La luminosité de {{device}} est de {{brightness}} pour cent.
+Pour {{device}}, la luminosité est à {{brightness}} pour cent.
+La luminosité de {{device}} est maintenant à {{brightness}} pour cent.

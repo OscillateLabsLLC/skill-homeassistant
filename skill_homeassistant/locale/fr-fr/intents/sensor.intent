@@ -1,0 +1,7 @@
+quel est l'état de {entity}
+donne-moi la valeur de {entity}
+est-ce que {entity} est allumé
+est-ce que {entity} est éteint
+est-ce que {entity} est ouvert
+est-ce que {entity} est fermé
+est-ce que {entity} a détecté de l'humidité

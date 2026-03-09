@@ -1,3 +1,4 @@
-peux-tu arrêter {entity}
-je veux arrêter {entity}
-j'aimerais arrêter {entity}
+arrête l'appareil {entity}
+mets {entity} à l'arrêt
+peux-tu arrêter l'appareil {entity}
+je veux arrêter l'appareil {entity}

@@ -10,7 +10,7 @@
     "icon": "https://www.home-assistant.io/images/home-assistant-logo.svg",
     "images": [],
     "name": "Home Assistant",
-    "description": "Contrôlez vos appareils Home Assistant à la voix.",
+    "description": "Commandez vos appareils Home Assistant à la voix.",
     "examples": [
         "Quel est l'état de la lumière du salon ?",
         "Allume la lumière de la cuisine",
@@ -23,8 +23,8 @@
         "assistant",
         "voix",
         "interface",
-        "skill",
-        "plugin"
+        "domotique",
+        "maison connectée"
     ],
     "version": "0.6.2"
 }

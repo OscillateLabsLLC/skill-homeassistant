@@ -82,6 +82,7 @@ dmypy.json
 .pytype/
 
 cython_debug/
+unit-test-results.xml
 .vscode/
 .idea/
 build/

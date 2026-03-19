@@ -77,6 +77,9 @@ shell = "black --line-length=119 skill_homeassistant && isort --overwrite-in-pla
 [tool.poetry.scripts]
 "neon-homeassistant-skill" = "skill_homeassistant:HomeAssistantSkill"
 
+[tool.poetry.plugins."opm.skill"]
+"skill-homeassistant.oscillatelabsllc" = "skill_homeassistant:HomeAssistantSkill"
+
 [tool.poetry.plugins."ovos.plugin.skill"]
 "skill-homeassistant.oscillatelabsllc" = "skill_homeassistant:HomeAssistantSkill"
 
@@ -88,6 +91,4 @@ disable = [
 
 [tool.coverage.run]
 relative_files = true
-omit = [
-    "skill_homeassistant/ha_client/logic/base.py",
-]
+omit = ["skill_homeassistant/ha_client/logic/base.py"]

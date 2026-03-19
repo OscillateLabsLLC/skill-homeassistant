@@ -1,3 +1,0 @@
-files:
-  - source: /skill_homeassistant/locale/en-us
-    translation: /skill_homeassistant/locale/%locale%

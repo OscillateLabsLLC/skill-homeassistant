@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.1.0...v1.2.0) (2026-03-19)
+
+
+### Features
+
+* add French locale and remove crowdin config ([4713d1d](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/4713d1d2e55c91c5dec0b2ecf6f54550433f1ddb))
+
 ## [1.1.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.0.0...v1.1.0) (2026-03-19)
 
 

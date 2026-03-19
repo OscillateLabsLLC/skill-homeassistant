@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.0.0...v1.1.0) (2026-03-19)
+
+
+### Features
+
+* add OPM skill entry point for backwards compatibility ([52a1c49](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/52a1c49fee4120f9c3d903bea84e095ded192192))
+* add plural examples to intents in es-ES. ([56822c4](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/56822c43701bbc883bea9ff4ae15b479f7950e24))
+* Add spanish translations ([63816f5](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/63816f51cec913e61c9842db886fb04cc9c97a89))
+
+
+### Bug Fixes
+
+* Fix lights decrease es-es intent translation ([e8270eb](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/e8270eb1c666a5c881946a27dd2add9f9cb48908))
+* Remove additional english dialogs from device.not.found.dialog ([c83943f](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/c83943f453db429719f63585f27a39c4d3cec568))
+* repair broken URLs in CONTRIBUTING.md, add unit-test-results.xml to .gitignore ([79c6147](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/79c614726257c758df6badd3ef018ba27461988e))
+
 ## [1.0.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v0.6.2...v1.0.0) (2026-02-16)
 
 

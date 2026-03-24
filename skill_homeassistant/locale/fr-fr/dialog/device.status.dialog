@@ -1,3 +1,3 @@
-L'état de {device} est {state}.
-Home Assistant indique que {device} est {state}.
-Pour {device}, l'état actuel est {state}.
+L'appareil {type} {device} est actuellement {state}.
+Home Assistant indique que {type} {device} est {state}.
+Pour l'appareil {type} {device}, l'état actuel est {state}.

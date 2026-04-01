@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.2.0...v1.2.1) (2026-04-01)
+
+
+### Bug Fixes
+
+* add missing fr-FR device status variables ([e8a65e4](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/e8a65e473380044e1451bcdac54eb1cf66a80e3a))
+
 ## [1.2.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.1.0...v1.2.0) (2026-03-19)
 
 

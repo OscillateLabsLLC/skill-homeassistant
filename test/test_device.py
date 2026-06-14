@@ -12,6 +12,7 @@ from skill_homeassistant.ha_client.logic.device import (
     HomeAssistantClimate,
     HomeAssistantVacuum,
     HomeAssistantScene,
+    HomeAssistantScript,
     HomeAssistantAutomation,
 )
 
@@ -642,6 +643,43 @@ class TestHomeAssistantAutomation(unittest.TestCase):
             self.assertIsNone(result)
             # Verify connector.turn_off was NOT called (automation overrides to do nothing)
             connector.turn_off.assert_not_called()
+
+
+class TestHomeAssistantScript(unittest.TestCase):
+    """Tests for HomeAssistantScript behavior."""
+
+    def _make_script(self, connector):
+        return HomeAssistantScript(
+            connector=connector,
+            device_id="script.movie_night",
+            device_icon="mdi:script-text",
+            device_name="Movie Night",
+            device_state="off",
+            device_attributes={},
+        )
+
+    def test_turn_off_logs_warning_and_returns_none(self):
+        """Script turn_off is a no-op warning (scripts are run, not turned off via voice)."""
+        connector = FakeConnector()
+        connector.turn_off = Mock()  # Track if it gets called
+        script = self._make_script(connector)
+
+        with patch("skill_homeassistant.ha_client.logic.device.LOG") as mock_log:
+            result = script.turn_off()
+            mock_log.warning.assert_called()
+            self.assertIsNone(result)
+            # Verify connector.turn_off was NOT called (script overrides to do nothing)
+            connector.turn_off.assert_not_called()
+
+    def test_turn_on_runs_the_script(self):
+        """Script turn_on activates the script via the connector (the 'run' path)."""
+        connector = FakeConnector()
+        connector.turn_on = Mock()
+        script = self._make_script(connector)
+
+        script.turn_on()
+        # Scripts run via the standard turn_on service call (script.turn_on)
+        connector.turn_on.assert_called_once_with("script.movie_night", "script")
 
 
 if __name__ == "__main__":

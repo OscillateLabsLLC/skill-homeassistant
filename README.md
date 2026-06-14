@@ -12,6 +12,7 @@ This unified skill replaces the legacy `neon-homeassistant-skill` and `ovos-PHAL
 - Control switches and outlets
 - Monitor sensors
 - Control covers (open/close, position)
+- Activate scenes and run scripts (e.g. "turn on movie night")
 - Silent mode for specific devices
 - Support for Home Assistant Assist API
 

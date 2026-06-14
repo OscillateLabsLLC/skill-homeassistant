@@ -733,3 +733,16 @@ class HomeAssistantAutomation(HomeAssistantDevice):
     def turn_off(self):
         LOG.warning("Request to turn off an automation. This is not supported, as it will disable it instead.")
         return
+
+
+class HomeAssistantScript(HomeAssistantDevice):
+    """Home Assistant Script"""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def turn_off(self):
+        # script.turn_off would abort a running script. We deliberately decline via voice to avoid
+        # surprising behavior; scripts are activated ("run"), mirroring how scenes are handled.
+        LOG.warning("Request to turn off a script. This is not supported - scripts can only be run.")
+        return

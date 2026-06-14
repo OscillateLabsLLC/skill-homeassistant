@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.2.1...v1.3.0) (2026-06-14)
+
+
+### Features
+
+* add Home Assistant script domain support ([d86c140](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/d86c1404f70a533897fa08f9fe7b4cb7d8cbc247))
+
 ## [1.2.1](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.2.0...v1.2.1) (2026-04-01)
 
 

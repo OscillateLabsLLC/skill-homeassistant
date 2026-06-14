@@ -11,6 +11,7 @@ from skill_homeassistant.ha_client.logic.device import (
     HomeAssistantLight,
     HomeAssistantMediaPlayer,
     HomeAssistantScene,
+    HomeAssistantScript,
     HomeAssistantSensor,
     HomeAssistantSwitch,
     HomeAssistantVacuum,
@@ -26,5 +27,6 @@ SUPPORTED_DEVICES = {
     "climate": HomeAssistantClimate,
     "camera": HomeAssistantCamera,
     "scene": HomeAssistantScene,
+    "script": HomeAssistantScript,
     "automation": HomeAssistantAutomation,
 }

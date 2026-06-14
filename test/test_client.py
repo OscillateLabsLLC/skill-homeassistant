@@ -107,6 +107,15 @@ class TestHomeAssistantClient(unittest.TestCase):
                 {"friendly_name": "Test Scene"},
                 "Living Room",
             ),
+            cls.plugin.device_types["script"](
+                FakeConnector(),
+                "test_script",
+                "mdi:script-text",
+                "test_script",
+                "off",
+                {"friendly_name": "Test Script"},
+                "Living Room",
+            ),
             cls.plugin.device_types["automation"](
                 FakeConnector(),
                 "test_automation",

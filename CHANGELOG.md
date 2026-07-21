@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.3.0...v1.4.0) (2026-07-21)
+
+
+### Features
+
+* add da-dk and sv-se translations ([#50](https://github.com/OscillateLabsLLC/skill-homeassistant/issues/50)) ([a4a8f7a](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/a4a8f7ac59904c58a3f50882cf7edcc614acef37))
+
 ## [1.3.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.2.1...v1.3.0) (2026-06-14)
 
 

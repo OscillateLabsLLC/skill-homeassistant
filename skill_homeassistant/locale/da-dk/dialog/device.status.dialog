@@ -1,0 +1,3 @@
+{type} {device} viser tilstanden {state}
+{type} kaldet {device} er i øjeblikket {state}
+Home Assistant fortæller mig at {type} {device} er {state}

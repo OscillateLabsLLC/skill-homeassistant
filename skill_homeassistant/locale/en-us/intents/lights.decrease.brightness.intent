@@ -1,3 +1,5 @@
-decrease (|the) brightness of (|the|my) {entity}
-make (|the|my) {entity} dimmer
-dim (|down) (|the) (|brightness) (|of) (|the|my) {entity}
+decrease the brightness of (the|my|) {entity}
+make (the|my|) {entity} dimmer
+dim (the|my|) {entity}
+dim down the {entity}
+dim the brightness of (the|) {entity}

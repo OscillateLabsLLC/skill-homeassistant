@@ -1,2 +1,3 @@
-(get|query) (|the) (|current) color of (|the|my) {entity}
-(what is|what's) (|the) (|current) color of (|the|my) {entity}
+(get|query) the current color of (the|) {entity}
+what is the color of (the|my|) {entity}
+what's the current color of my {entity}

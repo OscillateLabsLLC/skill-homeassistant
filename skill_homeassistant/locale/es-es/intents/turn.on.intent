@@ -1,5 +1,7 @@
-Enciende (|el|la|las|mi) {entity}
-Cambia (|el|la|las|mi) {entity} a encendido
-(Puedes|Quieres) cambiar (a encendido|) (|el|la|las|mi) {entity} (a encendido|) por favor?
-Me gustaría cambiar (a encendido|) (|el|la|las|mi) {entity} (a encendido|)
-Quiero (|el|la|las|mi) {entity} (encendido|encendida|encendidas)
+# "a encendido"/"Enciende" debe aparecer en cada línea: un grupo opcional
+# genera muestras idénticas a turn.off.intent y vuelve ambiguos los dos intents
+Enciende (el|la|mi|) {entity}
+Cambia (el|la|) {entity} a encendido
+(Puedes|Quieres) cambiar a encendido (el|la|) {entity} por favor
+Me gustaría cambiar (el|la|) {entity} a encendido
+Quiero (el|la|) {entity} (encendido|encendida)

@@ -1,1 +1,4 @@
-tell home assistant (|to){command}
+# No bracket group directly against {command}: (|to){command} trains a glued
+# "to{command}" token
+tell home assistant to {command}
+tell home assistant {command}

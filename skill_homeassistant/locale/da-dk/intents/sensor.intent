@@ -1,3 +1,7 @@
-(hvad er|giv mig|fortæl mig|hent) (|temperaturen|farvetonen|værdien|tilstanden|status|aflæsningen) for (|den|min) {entity} (venligst|).
-er (|den|min) {entity} (tændt|slukket|høj|lav|kold|varm|meget varm|forbundet|afbrudt|åben|lukket|mørk|i bevægelse|optaget|tilsluttet|sikret|usikret|opladning|tilgængelig)
-har (|den|min) {entity} registreret (|en) (fugt|energi|problem|vibration|gas|lyd)
+# Lav fan-out: Padatious generaliserer fra basisformer, kombinationer af
+# verbum x substantiv x artikel skal IKKE opregnes
+hvad er (temperaturen|værdien|tilstanden|status) for (den|min|) {entity}
+(giv mig|fortæl mig|hent) (temperaturen|tilstanden|status|aflæsningen) for (den|) {entity}
+hvad er status for den {entity} venligst
+er (den|min|) {entity} (tændt|slukket|høj|lav|kold|varm|meget varm|forbundet|afbrudt|åben|lukket|mørk|i bevægelse|optaget|tilsluttet|sikret|usikret|opladning|tilgængelig)
+har (den|min|) {entity} registreret (en|) (fugt|energi|problem|vibration|gas|lyd)

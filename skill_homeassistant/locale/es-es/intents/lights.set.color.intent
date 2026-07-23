@@ -1,2 +1,3 @@
-(ajusta|cambia|haz) el color de (|el|la|las|mi) {entity} (a |){color}
-(ajusta|cambia|haz) la luz de (|el|la|las|mi) {entity} (a |){color}
+(ajusta|cambia) el color de (el|la|mi) {entity} a {color}
+haz el color de (el|la|) {entity} {color}
+(ajusta|cambia) la luz de (el|la|) {entity} a {color}

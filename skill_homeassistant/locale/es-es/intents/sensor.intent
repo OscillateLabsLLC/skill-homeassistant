@@ -1,3 +1,8 @@
-(Cuál es|Dame|Dime|Obtén) (|el|la) (temperatura|valor|estado) de (|el|la|las|mi) {entity} (por favor|).
-Está (|el|la|mi) {entity} (encendido|apagado|arriba|abajo|frio|calido|caliente|conectado|desconectado|abierto|cerrado|oscuro|en movimiento|ocupado|conectado|seguro|inseguro|cargando|disponible)
-Ha detectado (|el|la|mi) {entity} (un|una|) (humedad|energía|problema|vibración|gas|sonido)
+# Fan-out bajo: Padatious generaliza a partir de formas base, no hace falta
+# enumerar cada combinación de verbo x sustantivo x artículo
+Cuál es la temperatura de (el|la|) {entity}
+Cuál es el (valor|estado) de (el|la|) {entity}
+(Dame|Dime|Obtén) el estado de (el|la|mi) {entity}
+Dame la temperatura de la {entity} por favor
+Está (el|la|mi|) {entity} (encendido|apagado|arriba|abajo|frio|calido|caliente|conectado|desconectado|abierto|cerrado|oscuro|en movimiento|ocupado|seguro|inseguro|cargando|disponible)
+Ha detectado (el|la|mi|) {entity} (humedad|energía|un problema|una vibración|gas|sonido)

@@ -1,2 +1,3 @@
-(obtén|consulta) el brillo (|current) de (|el|la|las|mi) {entity}
-(|Cuál es) el brillo (|actual) de (|el|la|las|mi) {entity}
+(obtén|consulta) el brillo actual de (el|la|) {entity}
+Cuál es el brillo de (el|la|mi) {entity}
+el brillo actual de la {entity}

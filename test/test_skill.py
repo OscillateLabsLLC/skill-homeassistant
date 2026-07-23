@@ -5,7 +5,6 @@ import unittest
 from mock import Mock, patch
 from ovos_bus_client import Message
 from ovos_utils.messagebus import FakeBus
-from padacioso import IntentContainer
 
 from skill_homeassistant import HomeAssistantSkill
 
@@ -17,7 +16,6 @@ url = f"https://github.com/{AUTHOR}/{REPO}@{BRANCH}"
 
 class TestSkillIntentMatching(unittest.TestCase):
     skill = HomeAssistantSkill(settings={"host": "http://homeassistant.local:8123", "api_key": "test"})
-    ha_intents = IntentContainer()
 
     bus = FakeBus()
     test_skill_id = "test_skill.test"

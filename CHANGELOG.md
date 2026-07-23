@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.0...v1.4.1) (2026-07-23)
+
+
+### Bug Fixes
+
+* prune Padatious intent expansion, cross-intent ambiguity, and locale bugs ([#53](https://github.com/OscillateLabsLLC/skill-homeassistant/issues/53)) ([7781a97](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/7781a9704a5542e8e1f1dc1add5fdc8175363c0a))
+
 ## [1.4.0](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.3.0...v1.4.0) (2026-07-21)
 
 

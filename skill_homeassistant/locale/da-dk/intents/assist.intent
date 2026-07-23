@@ -1,1 +1,4 @@
-sig til home assistant (|at){command}
+# Ingen parentesgruppe direkte mod {command}: (|at){command} træner et
+# sammenklistret "at{command}" token
+sig til home assistant at {command}
+sig til home assistant {command}

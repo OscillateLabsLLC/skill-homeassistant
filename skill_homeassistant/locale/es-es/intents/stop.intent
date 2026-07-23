@@ -1,4 +1,4 @@
-(Detén|Para) (|el|la|las|mi) {entity}
-Puedes detener (|el|la|las|mi) {entity} por favor?
-Me gustaría parar (|el|la|las|mi) {entity}
-Quiero detener (|el|la|las|mi) {entity}
+(Detén|Para) (el|la|mi|) {entity}
+Puedes detener (el|la|) {entity} por favor
+Me gustaría parar la {entity}
+Quiero detener (el|la|) {entity}

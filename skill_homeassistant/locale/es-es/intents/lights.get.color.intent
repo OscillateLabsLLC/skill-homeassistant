@@ -1,2 +1,3 @@
-(obtén|consulta) (|el) color (|actual) de (|el|la|las|mi) {entity}
-(|Cuál es) (|el) color (|actual) de (|el|la|las|mi) {entity}
+(obtén|consulta) el color actual de (el|la|) {entity}
+Cuál es el color de (el|la|mi) {entity}
+el color actual de la {entity}

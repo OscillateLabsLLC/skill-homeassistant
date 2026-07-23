@@ -1,3 +1,5 @@
-disminuye (|el) brillo de (|el|la|las) {entity}
-haz que (|el|la|las) {entity} sea mas tenue
-(atenua|baja) (|el) (|brillo) (|de) (|el|la|las) {entity}
+disminuye el brillo de (el|la|) {entity}
+baja el brillo de (el|la|mi) {entity}
+haz que (el|la|) {entity} sea mas tenue
+atenua (el|la|) {entity}
+atenua el brillo de la {entity}

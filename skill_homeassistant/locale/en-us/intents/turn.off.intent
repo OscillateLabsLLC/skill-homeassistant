@@ -1,5 +1,8 @@
-turn off (|the|my) {entity}
-turn (|the|my) {entity} off
-(Can|Would) you turn (off|) (|the|my) {entity} (off|) please?
-I'd like to turn (off|) (|the|my) {entity} (off|)
-I would like (|the|my) {entity} off
+# "off" must appear in every line: an optional (off|) group trains samples
+# identical to turn.on.intent and makes the two intents ambiguous
+turn off (the|my|) {entity}
+turn (the|my|) {entity} off
+(can|would) you turn off the {entity} please
+(can|would) you turn the {entity} off please
+I'd like to turn off (the|my|) {entity}
+I would like the {entity} off

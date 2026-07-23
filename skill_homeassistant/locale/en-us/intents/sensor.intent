@@ -1,3 +1,7 @@
-(What is|Give me|Tell me|Get) (|the) (temperature|hue|value|state|status|read out) of (|the|my) {entity} (please|).
-is (|the|my) {entity} (on|off|high|low|cold|warm|hot|connected|disconnected|open|closed|dark|in motion|occupied|plugged in|secure|unsecure|charging|available)
-has (|the|my) {entity} detected (a|) (moisture|energy|problem|vibration|gas|sound)
+# Keep alternation fan-out low: Padatious generalizes from base forms, so
+# verb x noun x article combinations must NOT be enumerated
+what is the (temperature|value|state|status) of (the|my|) {entity}
+(give me|tell me|get) the (temperature|state|status) of (the|) {entity}
+what's the (temperature|status) of the {entity} please
+is (the|my|) {entity} (on|off|high|low|cold|warm|hot|connected|disconnected|open|closed|dark|in motion|occupied|plugged in|secure|unsecure|charging|available)
+has (the|my|) {entity} detected (moisture|energy|a problem|vibration|gas|sound)

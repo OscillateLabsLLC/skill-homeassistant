@@ -1,2 +1,3 @@
-(set|change) (|the) brightness of (|the|my) {entity} to {brightness} (|percent)
-set (|the|my) {entity} brightness to {brightness} (|percent)
+set the brightness of (the|my|) {entity} to {brightness} percent
+(set|change) the brightness of (the|) {entity} to {brightness}
+set (the|my|) {entity} brightness to {brightness} (percent|)

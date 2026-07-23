@@ -1,1 +1,4 @@
-säg till home assistant (|att){command}
+# Ingen parentesgrupp direkt mot {command}: (|att){command} tränar ett
+# ihopklistrat "att{command}" token
+säg till home assistant att {command}
+säg till home assistant {command}

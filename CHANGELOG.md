@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.1...v1.4.2) (2026-08-19)
+
+
+### Bug Fixes
+
+* bump urllib3, orjson, requests, filelock, idna; raise Python floor to 3.10 ([#55](https://github.com/OscillateLabsLLC/skill-homeassistant/issues/55)) ([2934962](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/2934962134853a2fbeb0ae943b5addb47b193ca5))
+
 ## [1.4.1](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.0...v1.4.1) (2026-07-23)
 
 

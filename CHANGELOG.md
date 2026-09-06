@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.3](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.2...v1.4.3) (2026-09-06)
+
+
+### Bug Fixes
+
+* **deps:** bump pytest, Pygments, black to clear Dependabot alerts ([#57](https://github.com/OscillateLabsLLC/skill-homeassistant/issues/57)) ([936d540](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/936d540bc7b869d26451c0fa30a09b6bd853ebe2))
+
 ## [1.4.2](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.1...v1.4.2) (2026-08-19)
 
 

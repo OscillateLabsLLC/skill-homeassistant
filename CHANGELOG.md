@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.4](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.3...v1.4.4) (2026-10-05)
+
+
+### Bug Fixes
+
+* **i18n:** add it-IT and kab-DZ translations ([bb70114](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/bb70114d530d21f212840609096433b2cec93d57))
+* **i18n:** add it-IT and kab-DZ translations ([2914acf](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/2914acf0da4cce778cf35674a98a986f9b37a71c))
+
 ## [1.4.3](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.2...v1.4.3) (2026-09-06)
 
 

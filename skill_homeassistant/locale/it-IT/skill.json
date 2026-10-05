@@ -1,0 +1,31 @@
+{
+  "skill_id": "skill_homeassistant.oscillatelabsllc",
+  "source": "https://github.com/oscillatelabsllc/skill-homeassistant",
+  "package_name": "skill-homeassistant",
+  "pip_spec": "skill-homeassistant",
+  "license": "Apache-2.0",
+  "author": [
+    "Mike Gray <mike@oscillatelabs.net>"
+  ],
+  "icon": "https://www.home-assistant.io/images/home-assistant-logo.svg",
+  "version": "1.2.0",
+  "name": "skill-homeassistant",
+  "description": "Controlla i dispositivi Home Assistant con la voce – 100 % offline tramite OpenVoiceOS.",
+  "examples": [
+    "Dì a Home Assistant di accendi le luci del soggiorno",
+    "Chiedi a Home Assistant imposta la temperatura a 22 gradi",
+    "Chiedi a Home Assistant qual è lo stato della porta d’ingresso?",
+    "Ordina a Home Assistant Avvia lo script 'Buona notte'"
+  ],
+  "tags": [
+    "home assistant",
+    "casa intelligente",
+    "controllo vocale",
+    "offline",
+    "privacy",
+    "openvoiceos",
+    "luci",
+    "clima",
+    "media"
+  ]
+}

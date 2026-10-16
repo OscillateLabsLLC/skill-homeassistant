@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.5](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.4...v1.4.5) (2026-10-16)
+
+
+### Bug Fixes
+
+* **deps:** bump urllib3 to 2.8.0 ([c4792d5](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/c4792d5a8c8c7d08e30973f7acc343f0d8ca3453))
+* **deps:** bump urllib3 to 2.8.0 ([07adbcd](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/07adbcd568922839bd486ed8c8d536f0e4c57337))
+
 ## [1.4.4](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.3...v1.4.4) (2026-10-05)
 
 

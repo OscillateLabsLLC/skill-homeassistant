@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.6](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.5...v1.4.6) (2026-11-04)
+
+
+### Bug Fixes
+
+* **deps:** bump certifi to 2026.10.23 ([eca3593](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/eca3593bd39b2b5c30ce875e4ba5cfe671ed068b))
+* **deps:** bump certifi to 2026.10.23 ([1db24c7](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/1db24c79b41ab4c3fff5e40f0af61c98b5ee0777))
+
 ## [1.4.5](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.4...v1.4.5) (2026-10-16)
 
 

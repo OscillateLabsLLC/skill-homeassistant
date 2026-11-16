@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.7](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.6...v1.4.7) (2026-11-16)
+
+
+### Bug Fixes
+
+* drop nested-lookup, which the skill never imports ([e73ee70](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/e73ee70dda5f1b7eb19db85ba4b685b4d54f9cc2))
+* drop nested-lookup, which the skill never imports ([ea5c510](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/ea5c510cb51329f6aaf6cc410166f0928a1fa2d0))
+
 ## [1.4.6](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.5...v1.4.6) (2026-11-04)
 
 

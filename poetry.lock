@@ -667,20 +667,6 @@ files = [
 ]
 
 [[package]]
-name = "nested-lookup"
-version = "0.2.25"
-description = "Python functions for working with deeply nested documents (lists and dicts)"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "nested-lookup-0.2.25.tar.gz", hash = "sha256:6fa832748c90381f2291d850809e32492519ee5f253d6a5acbc29d937eca02e8"},
-]
-
-[package.dependencies]
-six = "*"
-
-[[package]]
 name = "orjson"
 version = "3.12.0"
 description = "Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy"
@@ -1908,4 +1894,4 @@ test = []
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10,<4.0"
-content-hash = "adb17ed6977782ff9c5eba0e5f1cd826bf85a316f6cdaff0d2ba3e2b6239c70b"
+content-hash = "ea6dd73e2e789c97a6f168b13f989a96fca0773a255022467b7415b69dcc987f"

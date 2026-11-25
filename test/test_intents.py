@@ -7,6 +7,7 @@ total sample count. These tests keep the expansion budget from creeping back up
 match their intents.
 """
 
+import re
 from pathlib import Path
 
 import pytest
@@ -72,6 +73,35 @@ class TestExpansionBudget:
                         ), f"{lang}/{f.name}: {line!r} trains glued token {token!r}"
 
 
+ALL_INTENT_LOCALES = sorted(p.parent.name for p in LOCALE_DIR.glob("*/intents"))
+
+# OVOS-PIPELINE-1 §7.3: ovos-core refuses to index intents with these names
+RESERVED_INTENT_NAMES = {"converse", "response", "stop", "fallback", "common_query"}
+
+ADJACENT_SLOTS = re.compile(r"\}\s*\{")
+
+
+class TestOvosTemplateRules:
+    @pytest.mark.parametrize("lang", ALL_INTENT_LOCALES)
+    def test_no_adjacent_slots(self, lang):
+        """OVOS-INTENT-1 rejects the WHOLE line if any expansion puts two slots
+        side by side, including via an empty alternative like (til |)."""
+        for f in sorted((LOCALE_DIR / lang / "intents").glob("*.intent")):
+            for line in _intent_lines(f):
+                for sample in expand_template(line):
+                    assert not ADJACENT_SLOTS.search(sample), (
+                        f"{lang}/{f.name}: {line!r} expands to {sample!r} - "
+                        "a literal word must separate any two slots"
+                    )
+
+    @pytest.mark.parametrize("lang", ALL_INTENT_LOCALES)
+    def test_no_reserved_intent_names(self, lang):
+        for f in sorted((LOCALE_DIR / lang / "intents").glob("*.intent")):
+            assert f.stem not in RESERVED_INTENT_NAMES, (
+                f"{lang}/{f.name}: intent name {f.stem!r} is reserved by OVOS and will not be indexed"
+            )
+
+
 class TestIntentMatching:
     """Exact-pattern matching for the phrasings the intent files keep.
 
@@ -109,7 +139,8 @@ class TestIntentMatching:
             ("what is the color of the kitchen light", "lights.get.color"),
             ("set the brightness of the office light to 50 percent", "lights.set.brightness"),
             ("change my lamp color to red", "lights.set.color"),
-            ("stop the vacuum", "stop"),
+            ("make my kitchen light turn red", "lights.set.color"),
+            ("stop the vacuum", "stop.entity"),
             ("tell home assistant to restart the server", "assist"),
             ("Enable Home Assistant", "enable"),
             ("Disable Home Assistant", "disable"),
@@ -124,3 +155,8 @@ class TestIntentMatching:
         result = container.calc_intent("set the brightness of the office light to 50")
         assert result["entities"].get("entity") == "office light"
         assert result["entities"].get("brightness") == "50"
+
+    def test_color_slots_keep_full_device_name(self, container):
+        result = container.calc_intent("make my kitchen light turn red")
+        assert result["entities"].get("entity") == "kitchen light"
+        assert result["entities"].get("color") == "red"

@@ -24,7 +24,7 @@ class HomeAssistantSkill(OVOSSkill):
         "sensor.intent",
         "turn.on.intent",
         "turn.off.intent",
-        "stop.intent",
+        "stop.entity.intent",
         "lights.get.brightness.intent",
         "lights.set.brightness.intent",
         "lights.increase.brightness.intent",
@@ -257,7 +257,7 @@ class HomeAssistantSkill(OVOSSkill):
                 self.log.info(f"Trying to turn on device {device}")
 
     @intent_handler("turn.off.intent")  # pragma: no cover
-    @intent_handler("stop.intent")  # pragma: no cover
+    @intent_handler("stop.entity.intent")  # pragma: no cover
     def handle_turn_off_intent(self, message: Message) -> None:
         """Handle turn off intent."""
         self.log.info(message.data)

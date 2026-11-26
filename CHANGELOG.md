@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.8](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.7...v1.4.8) (2026-11-26)
+
+
+### Bug Fixes
+
+* separate adjacent template slots and rename reserved stop intent ([1b7b250](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/1b7b250271c80f8e5d0566030cb81ec69dffbb83))
+* separate adjacent template slots and rename reserved stop intent ([5792728](https://github.com/OscillateLabsLLC/skill-homeassistant/commit/5792728387cd2f58ebd65e2beb620a0e1c8112d1))
+
 ## [1.4.7](https://github.com/OscillateLabsLLC/skill-homeassistant/compare/v1.4.6...v1.4.7) (2026-11-16)
 
 
